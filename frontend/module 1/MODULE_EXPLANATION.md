@@ -1,0 +1,5 @@
+# Module explanation — release 1.1
+
+JSP renders escaped report content and CSRF-protected forms. The owner's prepared shared shell includes Account, preferences, dictionaries and map/photo assets. This module supplies report creation/list/detail/timeline, the ranked Feed/community page and the safe public progress view. The form shows address suggestions, a pin, upload preview and a camera action; coordinates are hidden. After submission the report cannot be edited. My Reports contains personal counts and recoverable deletion. Map circles/pins use red/yellow/green priority and distinct reporter counts. Device camera/location permission is optional; gallery images do not establish capture location. Shared private detail contains role-dependent actions and real before/after photos.
+
+Read `RELEASE_1.1_CONTEXT.md` for your role, actual contribution groups and twelve-week planning context. Explain the files you reviewed/changed and record real tests/commits, distinguishing prepared foundation work from your payload.
