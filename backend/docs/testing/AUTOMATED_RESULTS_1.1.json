@@ -1,0 +1,73 @@
+{
+  "release": "1.1.0",
+  "database": "MySQL 8.0.46",
+  "schemaUpgrade": "V400 -> V500 -> V600",
+  "tests": [
+    {
+      "name": "com.civicpulse.AdministrationIntegrationTest",
+      "tests": "7",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "13.84"
+    },
+    {
+      "name": "com.civicpulse.CitizenExperienceIntegrationTest",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "7.855"
+    },
+    {
+      "name": "com.civicpulse.FoundationIntegrationTest",
+      "tests": "19",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "6.876"
+    },
+    {
+      "name": "com.civicpulse.GeocoderTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.027"
+    },
+    {
+      "name": "com.civicpulse.InsightsIntegrationTest",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "9.292"
+    },
+    {
+      "name": "com.civicpulse.ProfileIntegrationTest",
+      "tests": "4",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.088"
+    },
+    {
+      "name": "com.civicpulse.ReportingIntegrationTest",
+      "tests": "11",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "12.554"
+    },
+    {
+      "name": "com.civicpulse.ResolutionIntegrationTest",
+      "tests": "7",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "8.019"
+    }
+  ],
+  "passed": 65,
+  "failures": 0
+}
