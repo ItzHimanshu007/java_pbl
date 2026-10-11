@@ -1,0 +1,3 @@
+This private placeholder keeps the second frontend web root available in the
+owner's runnable foundation. Module 2 supplies the staff and insights JSP pages.
+Both frontend web roots are merged by the root Maven WAR build.
