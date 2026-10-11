@@ -1,0 +1,21 @@
+{
+  "REPORTED": "Awaiting review",
+  "ASSIGNED": "Assigned",
+  "IN_PROGRESS": "In progress",
+  "RESOLVED": "Ready to verify",
+  "CLOSED": "Verified closed",
+  "REJECTED": "Rejected",
+  "WORK_STARTED": "Work started",
+  "PROGRESS_UPDATE": "Progress update",
+  "REPAIR_SUBMITTED": "Repair submitted",
+  "CITIZEN_CONFIRMED": "Citizen confirmed",
+  "REOPENED": "Further work requested",
+  "DELETED": "Report deleted",
+  "RESTORED": "Report restored",
+  "CITIZEN": "Citizen",
+  "OFFICER": "Officer",
+  "ADMIN": "Administrator",
+  "high": "High",
+  "medium": "Medium",
+  "low": "Low"
+}
