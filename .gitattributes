@@ -1,0 +1,4 @@
+# Module manifests validate the delivered bytes on Windows and other systems.
+# Disable automatic line-ending conversion; text diffs still use Git defaults.
+# mvnw already uses LF and mvnw.cmd already uses CRLF.
+* -text
