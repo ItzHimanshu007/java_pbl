@@ -1,0 +1,8 @@
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<c:set var="pageTitle" value="Your workspace"/>
+<%@ include file="../fragments/head.jspf" %><%@ include file="../fragments/header.jspf" %>
+<main id="main" class="workspace container"><div class="workspace-heading"><div><span class="eyebrow">${ui['YOUR CIVICPULSE WORKSPACE']}</span><h1>${ui['Hello,']} <c:out value="${displayName}"/>.</h1><p class="muted">${ui['You’re signed in to your']} ${ui[roleLabel]} ${ui['account.']}</p></div><span class="pill"><span class="status-dot"></span> ${ui['Account active']}</span></div>
+<div class="workspace-grid"><section class="workspace-card"><span class="eyebrow">${ui['A PLACE FOR YOUR VOICE']}</span><h2>${ui['Connected to your community.']}</h2><p>${ui['CivicPulse brings reporting, accountable progress and repair verification into one shared journey.']}</p><div class="journey-labels"><span>${ui['Report']}</span><span aria-hidden="true">→</span><span>${ui['Track']}</span><span aria-hidden="true">→</span><span>${ui['Resolve']}</span></div><a class="text-link" href="<c:url value='/account'/>">${ui['Manage your account']} <span aria-hidden="true">↗</span></a></section>
+<section class="workspace-card account-summary"><h2>${ui['Your account']}</h2><dl><dt>${ui['Name']}</dt><dd><c:out value="${displayName}"/></dd><dt>${ui['Email']}</dt><dd><c:out value="${accountEmail}"/></dd><dt>${ui['Role']}</dt><dd>${ui[roleLabel]}</dd></dl><p class="field-help">${ui['Your role determines the workspace you can access.']}</p></section></div>
+</main><%@ include file="../fragments/footer.jspf" %>
