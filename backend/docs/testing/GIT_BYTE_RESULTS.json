@@ -1,0 +1,6 @@
+{
+  "check": "Git content filters preserve delivered file bytes even with core.autocrlf=true",
+  "filesChecked": 258,
+  "result": "PASS",
+  "mutations": "No Git commits, staging or object writes were performed."
+}

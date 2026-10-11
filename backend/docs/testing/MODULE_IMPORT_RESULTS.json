@@ -1,0 +1,61 @@
+[
+  {
+    "result": "PASS",
+    "expectedFailure": "Install module 1 first.",
+    "check": "Missing prerequisite blocks before copying",
+    "repositoryUnchanged": true
+  },
+  {
+    "result": "PASS",
+    "expectedFailure": "Foundation file changed: pom.xml. Review compatibility before importing.",
+    "check": "Changed foundation blocks before copying",
+    "repositoryUnchanged": true
+  },
+  {
+    "result": "PASS",
+    "expectedFailure": "Module checksum mismatch: frontend/module 1/src/main/resources/static/assets/css/maps.css",
+    "check": "Changed payload blocks before copying",
+    "repositoryUnchanged": true
+  },
+  {
+    "result": "PASS",
+    "expectedFailure": "Existing file differs: frontend/module 1/src/main/resources/static/assets/css/maps.css. Review and merge your changes before importing.",
+    "check": "Conflicting local work blocks before copying",
+    "repositoryUnchanged": true
+  },
+  {
+    "check": "Module 1 imports successfully",
+    "result": "PASS"
+  },
+  {
+    "check": "Module 2 imports successfully",
+    "result": "PASS"
+  },
+  {
+    "result": "PASS",
+    "check": "Build passes after module 2",
+    "tests": 0
+  },
+  {
+    "check": "Module 3 imports successfully",
+    "result": "PASS"
+  },
+  {
+    "result": "PASS",
+    "check": "Build passes after module 3",
+    "tests": 38
+  },
+  {
+    "check": "Module 4 imports successfully",
+    "result": "PASS"
+  },
+  {
+    "result": "PASS",
+    "check": "Build passes after module 4",
+    "tests": 52
+  },
+  {
+    "check": "Identical repeated import is accepted",
+    "result": "PASS"
+  }
+]

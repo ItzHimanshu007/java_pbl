@@ -1,0 +1,28 @@
+{
+  "release": "1.1.0",
+  "browser": "Codex in-app Chromium",
+  "phoneViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "checks": [
+    "Real Photon autocomplete produced five Jaipur address suggestions",
+    "Real JPEG upload displayed its object-URL image preview and file information",
+    "Account saved Hindi/dark and translated navigation, forms, statuses, categories, footer and map zoom controls",
+    "Feed, Account and report form fit a 390px viewport with document width 375px and no horizontal overflow",
+    "Phone navigation menu expanded and linked to Account/report form",
+    "Latitude/longitude report fields are hidden and camera action is present",
+    "High-priority filtering showed one card and one matching pin; restoring All showed four groups",
+    "External basemap tiles loaded; temporary viewport override reset"
+  ],
+  "limitations": [
+    "Physical device GPS and camera permission/capture not exercised",
+    "Desktop viewport simulation is not a physical phone test",
+    "Provider availability and map tiles depend on internet"
+  ],
+  "screenshots": [
+    "account-mobile-1.1.png",
+    "report-mobile-1.1.png",
+    "feed-dark-hindi-1.1.png"
+  ]
+}

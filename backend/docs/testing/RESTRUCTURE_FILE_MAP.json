@@ -1,0 +1,765 @@
+[
+  {
+    "from": "src/main/resources/application-demo.properties",
+    "to": "backend/module 3/src/main/resources/application-demo.properties",
+    "originalSha256": "f6ecc870f5517fcdc76c3f7459432246735bec4a3e5ba076781dd0a608ba89cf",
+    "sha256": "f6ecc870f5517fcdc76c3f7459432246735bec4a3e5ba076781dd0a608ba89cf",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/resources/application.properties",
+    "to": "backend/module 3/src/main/resources/application.properties",
+    "originalSha256": "e96790c4d08f8309629f13ec396567bd90eee8cceb2e51b8f4b1a5a408949a63",
+    "sha256": "e96790c4d08f8309629f13ec396567bd90eee8cceb2e51b8f4b1a5a408949a63",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/CivicPulseApplication.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/CivicPulseApplication.java",
+    "originalSha256": "0401f1fb8aa7330851f90793e4e260ad3e1cc567a4f410a4114adb5834f0451f",
+    "sha256": "0401f1fb8aa7330851f90793e4e260ad3e1cc567a4f410a4114adb5834f0451f",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/account/AccountController.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/account/AccountController.java",
+    "originalSha256": "aeb397de9b9112a61fbaaa5c25029fcd0729f2bf0ad10079bbecadd58a8b1814",
+    "sha256": "aeb397de9b9112a61fbaaa5c25029fcd0729f2bf0ad10079bbecadd58a8b1814",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/account/AccountUser.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/account/AccountUser.java",
+    "originalSha256": "00451764d7c53a7ce4ef0b70cf31d0211d6671bf578d0b49165a5b2c7323c067",
+    "sha256": "00451764d7c53a7ce4ef0b70cf31d0211d6671bf578d0b49165a5b2c7323c067",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/account/ProfileForm.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/account/ProfileForm.java",
+    "originalSha256": "9b20d0eda70377c15fcded44c4ac240be40e699f72f1ff7f0d30426bf7907067",
+    "sha256": "9b20d0eda70377c15fcded44c4ac240be40e699f72f1ff7f0d30426bf7907067",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/account/UserDao.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/account/UserDao.java",
+    "originalSha256": "d176896eda9275e2425cd500b7fd43670fbbe17d1b375c467feb079ea2248a03",
+    "sha256": "d176896eda9275e2425cd500b7fd43670fbbe17d1b375c467feb079ea2248a03",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/administration/AdministrationController.java",
+    "to": "backend/module 4/src/main/java/com/civicpulse/administration/AdministrationController.java",
+    "originalSha256": "90c37c333096a77287756ce98360a07ef1905eb92e0945f9acafa5fe91f6bb07",
+    "sha256": "90c37c333096a77287756ce98360a07ef1905eb92e0945f9acafa5fe91f6bb07",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/administration/AdministrationService.java",
+    "to": "backend/module 4/src/main/java/com/civicpulse/administration/AdministrationService.java",
+    "originalSha256": "3e236f931808c891427e49386dc1d753b25e55ec15325eb90f036a1b2daf27e7",
+    "sha256": "3e236f931808c891427e49386dc1d753b25e55ec15325eb90f036a1b2daf27e7",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/administration/AdministrationWorkspace.java",
+    "to": "backend/module 4/src/main/java/com/civicpulse/administration/AdministrationWorkspace.java",
+    "originalSha256": "aaf7c0b13523476df1ab619699351b0cd81752a52e82b8b3bc7f35968ac806e7",
+    "sha256": "aaf7c0b13523476df1ab619699351b0cd81752a52e82b8b3bc7f35968ac806e7",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/administration/DemoOfficerDepartment.java",
+    "to": "backend/module 4/src/main/java/com/civicpulse/administration/DemoOfficerDepartment.java",
+    "originalSha256": "54fe02c3ef49c66c3ca8eadfdb3a2273f8fdcad8bc67c0c9886adf89b0ac9d0a",
+    "sha256": "54fe02c3ef49c66c3ca8eadfdb3a2273f8fdcad8bc67c0c9886adf89b0ac9d0a",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/administration/Department.java",
+    "to": "backend/module 4/src/main/java/com/civicpulse/administration/Department.java",
+    "originalSha256": "22a82c7a16eae7b8b9b0b0ec9d3842a3676cda9d688167ad3ef28954a951097c",
+    "sha256": "22a82c7a16eae7b8b9b0b0ec9d3842a3676cda9d688167ad3ef28954a951097c",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/administration/Officer.java",
+    "to": "backend/module 4/src/main/java/com/civicpulse/administration/Officer.java",
+    "originalSha256": "f1ecfd3a17aa68e80b232d6efc0ab140c321ed06449f5121cdfc39659e6407b1",
+    "sha256": "f1ecfd3a17aa68e80b232d6efc0ab140c321ed06449f5121cdfc39659e6407b1",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/administration/OfficerForm.java",
+    "to": "backend/module 4/src/main/java/com/civicpulse/administration/OfficerForm.java",
+    "originalSha256": "a47ab9bbcce1c8673df622650ee751f3a039dc55430392e6f45442c7cf4e3847",
+    "sha256": "a47ab9bbcce1c8673df622650ee751f3a039dc55430392e6f45442c7cf4e3847",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/auth/AuthController.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/auth/AuthController.java",
+    "originalSha256": "73dd2c16796f74b26f8aff0f6962924e36caa43eab7029dbe7308d9ca421cd92",
+    "sha256": "73dd2c16796f74b26f8aff0f6962924e36caa43eab7029dbe7308d9ca421cd92",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/auth/AuthCookies.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/auth/AuthCookies.java",
+    "originalSha256": "49ea8bbc21b17e416c75ae4d667043bb4fcf6f53791e932a4578db450fa18839",
+    "sha256": "49ea8bbc21b17e416c75ae4d667043bb4fcf6f53791e932a4578db450fa18839",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/auth/AuthService.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/auth/AuthService.java",
+    "originalSha256": "9ef7254e82539ae130a3bd3120591bc26386afb8ac38a15869a0411ab8fda89f",
+    "sha256": "9ef7254e82539ae130a3bd3120591bc26386afb8ac38a15869a0411ab8fda89f",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/auth/CurrentUser.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/auth/CurrentUser.java",
+    "originalSha256": "2aeaf8a812807fd6947a65585ad5b5a5ca2fc356a23937676611fc0368f9dac8",
+    "sha256": "2aeaf8a812807fd6947a65585ad5b5a5ca2fc356a23937676611fc0368f9dac8",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/auth/JwtAuthenticationFilter.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/auth/JwtAuthenticationFilter.java",
+    "originalSha256": "796869ccb6e501b333dc669bab09bc2c7c15c097a43202f0a742e17747626045",
+    "sha256": "796869ccb6e501b333dc669bab09bc2c7c15c097a43202f0a742e17747626045",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/auth/JwtTokenService.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/auth/JwtTokenService.java",
+    "originalSha256": "fadee78c25b1bafc3cb8b6dfcba70881f12f86ec48e80e6fd08069e2df7759f1",
+    "sha256": "fadee78c25b1bafc3cb8b6dfcba70881f12f86ec48e80e6fd08069e2df7759f1",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/auth/LoginForm.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/auth/LoginForm.java",
+    "originalSha256": "710e3b323a5d3632f03af3256b086f62008e654b8ce43936f19a176afb0b473e",
+    "sha256": "710e3b323a5d3632f03af3256b086f62008e654b8ce43936f19a176afb0b473e",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/auth/LoginSessionDao.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/auth/LoginSessionDao.java",
+    "originalSha256": "60843da0c3cfbe1e04114d0754c484f063b14c1aa6c8ca35c27dbe3fb5360b3d",
+    "sha256": "60843da0c3cfbe1e04114d0754c484f063b14c1aa6c8ca35c27dbe3fb5360b3d",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/auth/RegistrationForm.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/auth/RegistrationForm.java",
+    "originalSha256": "d148eb5bf6fd8dff0b243a146fc032991cd6bc0fa3d733caf0bb786a177bb8ac",
+    "sha256": "d148eb5bf6fd8dff0b243a146fc032991cd6bc0fa3d733caf0bb786a177bb8ac",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/complaints/AttachmentInfo.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/complaints/AttachmentInfo.java",
+    "originalSha256": "c3d5f47a905129c4a435a0c7925ef90c0be47e66df8e4defe26be8b05ef7dc89",
+    "sha256": "c3d5f47a905129c4a435a0c7925ef90c0be47e66df8e4defe26be8b05ef7dc89",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/complaints/Category.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/complaints/Category.java",
+    "originalSha256": "62c6bcfd3bb04791604df6e95091ae6286df0abe3ea1221c9a9f5193c99b007d",
+    "sha256": "62c6bcfd3bb04791604df6e95091ae6286df0abe3ea1221c9a9f5193c99b007d",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/complaints/Complaint.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/complaints/Complaint.java",
+    "originalSha256": "8361721617a21049c5db7fc760f7c3285f760f3fb43f94d9690eea53fdbcffcf",
+    "sha256": "8361721617a21049c5db7fc760f7c3285f760f3fb43f94d9690eea53fdbcffcf",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/complaints/ComplaintAccess.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/complaints/ComplaintAccess.java",
+    "originalSha256": "3f53d3db8f4ac80ef34ed9646bfdb3985865ab478e2b86f768d57aefbec9735b",
+    "sha256": "3f53d3db8f4ac80ef34ed9646bfdb3985865ab478e2b86f768d57aefbec9735b",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/complaints/ComplaintController.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/complaints/ComplaintController.java",
+    "originalSha256": "3d38153444b6845ab3778fc32a5fa445c9d543f6bde8e451478dd954477dfa27",
+    "sha256": "3d38153444b6845ab3778fc32a5fa445c9d543f6bde8e451478dd954477dfa27",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/complaints/ComplaintDao.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/complaints/ComplaintDao.java",
+    "originalSha256": "eba9f45f2e60506b07370c21c2d93ab92785b9d68041de354a9270bb58e8b92d",
+    "sha256": "eba9f45f2e60506b07370c21c2d93ab92785b9d68041de354a9270bb58e8b92d",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/complaints/ComplaintEvent.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/complaints/ComplaintEvent.java",
+    "originalSha256": "88e258847778478194916faa93d0095821ddb29b33e15838bbf29b2184b70a8a",
+    "sha256": "88e258847778478194916faa93d0095821ddb29b33e15838bbf29b2184b70a8a",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/complaints/ComplaintForm.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/complaints/ComplaintForm.java",
+    "originalSha256": "23c4b1a28fb6525787aa07bcccbeed5d3f1d2f2aac35804ab29475d2522f98bc",
+    "sha256": "23c4b1a28fb6525787aa07bcccbeed5d3f1d2f2aac35804ab29475d2522f98bc",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/complaints/DetailContributor.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/complaints/DetailContributor.java",
+    "originalSha256": "311f03f72e3867fa4375adae391fe3a9c4662a779c73acc3225dd5c8631e3acd",
+    "sha256": "311f03f72e3867fa4375adae391fe3a9c4662a779c73acc3225dd5c8631e3acd",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/complaints/ImageStore.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/complaints/ImageStore.java",
+    "originalSha256": "d6c6bdea1a37fd75c20d06f6252ff48becc18b0cb36ae31e6a0224ad09edd661",
+    "sha256": "d6c6bdea1a37fd75c20d06f6252ff48becc18b0cb36ae31e6a0224ad09edd661",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/complaints/ReportingWorkspace.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/complaints/ReportingWorkspace.java",
+    "originalSha256": "761c9cccafc55083cf584632f91743ee1c260848c15e9f95de3d661dacf7de41",
+    "sha256": "761c9cccafc55083cf584632f91743ee1c260848c15e9f95de3d661dacf7de41",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/complaints/SubmissionService.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/complaints/SubmissionService.java",
+    "originalSha256": "bbb5ffe1a85e8b18262e747d12c211fc14731d4ec936967857b851a9258b2be4",
+    "sha256": "bbb5ffe1a85e8b18262e747d12c211fc14731d4ec936967857b851a9258b2be4",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/config/AccountBootstrap.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/config/AccountBootstrap.java",
+    "originalSha256": "67de517d4192409e13836d174187f0744538abef5b8372d1031a03111894b0de",
+    "sha256": "67de517d4192409e13836d174187f0744538abef5b8372d1031a03111894b0de",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/config/DemoAccounts.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/config/DemoAccounts.java",
+    "originalSha256": "77fafebea0276945cd4b688d4e03741ab6f63b07da74942c1b2018272923c30e",
+    "sha256": "77fafebea0276945cd4b688d4e03741ab6f63b07da74942c1b2018272923c30e",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/config/JwtConfiguration.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/config/JwtConfiguration.java",
+    "originalSha256": "aaf47f65df6231df30c1c0a30cba6a673cc4c03fc2309211be1803aecf0f5f69",
+    "sha256": "aaf47f65df6231df30c1c0a30cba6a673cc4c03fc2309211be1803aecf0f5f69",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/config/JwtSettings.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/config/JwtSettings.java",
+    "originalSha256": "d9b970a9a57b5f4d18b54cc8ad69074f94fe518f818f87116fbc9edd7d4e77c4",
+    "sha256": "d9b970a9a57b5f4d18b54cc8ad69074f94fe518f818f87116fbc9edd7d4e77c4",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/config/SecurityConfiguration.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/config/SecurityConfiguration.java",
+    "originalSha256": "d8cd3e1fa77313603be67eb0c94c82876af3f2fae12e81c315cd77d09ca3b622",
+    "sha256": "d8cd3e1fa77313603be67eb0c94c82876af3f2fae12e81c315cd77d09ca3b622",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/config/ServletConfiguration.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/config/ServletConfiguration.java",
+    "originalSha256": "c9086ca43d756165497c1cdb0effc7d1758596d0f391e58e163daf71e2feef6d",
+    "sha256": "c9086ca43d756165497c1cdb0effc7d1758596d0f391e58e163daf71e2feef6d",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/insights/CommunityReport.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/insights/CommunityReport.java",
+    "originalSha256": "9c7cf044003ebc9bd152ad54954656b94f8c16ba95ea980ab6a2bb6c65ef9044",
+    "sha256": "9c7cf044003ebc9bd152ad54954656b94f8c16ba95ea980ab6a2bb6c65ef9044",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/insights/DemoReports.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/insights/DemoReports.java",
+    "originalSha256": "36b8b7cc06cbda169a3ed15f749cf9a60888d4f8b467dec6b5493c135ef16376",
+    "sha256": "36b8b7cc06cbda169a3ed15f749cf9a60888d4f8b467dec6b5493c135ef16376",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/insights/InsightsController.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/insights/InsightsController.java",
+    "originalSha256": "dcbaaa38ce1e28361a5a22e98223edc102c61bce03ae37e65532a0c7107cce44",
+    "sha256": "dcbaaa38ce1e28361a5a22e98223edc102c61bce03ae37e65532a0c7107cce44",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/insights/InsightsNavigation.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/insights/InsightsNavigation.java",
+    "originalSha256": "11cd8c0724c94764ed04f8e8ceaa97f10470649deffc39015c6f4db77df88ca2",
+    "sha256": "11cd8c0724c94764ed04f8e8ceaa97f10470649deffc39015c6f4db77df88ca2",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/insights/InsightsService.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/insights/InsightsService.java",
+    "originalSha256": "49292174c4a95269be3f474deb441b545887b864985df38a2c9beb00ff9eeebc",
+    "sha256": "49292174c4a95269be3f474deb441b545887b864985df38a2c9beb00ff9eeebc",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/resolution/ResolutionController.java",
+    "to": "backend/module 4/src/main/java/com/civicpulse/resolution/ResolutionController.java",
+    "originalSha256": "28e270e869fa66203f61c380d491d1834adf0a50845b60143990cb1778e5d8dd",
+    "sha256": "28e270e869fa66203f61c380d491d1834adf0a50845b60143990cb1778e5d8dd",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/resolution/ResolutionService.java",
+    "to": "backend/module 4/src/main/java/com/civicpulse/resolution/ResolutionService.java",
+    "originalSha256": "0519c6998eb795e79773e389e8be1eeb94678d3241c704b2fcb6d8c978adc174",
+    "sha256": "0519c6998eb795e79773e389e8be1eeb94678d3241c704b2fcb6d8c978adc174",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/resolution/ResolutionWorkspace.java",
+    "to": "backend/module 4/src/main/java/com/civicpulse/resolution/ResolutionWorkspace.java",
+    "originalSha256": "74bab97d372a7b2278653b7b25dbfcf0611d68f1c840fbbae5033cb353b54bbf",
+    "sha256": "74bab97d372a7b2278653b7b25dbfcf0611d68f1c840fbbae5033cb353b54bbf",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/shared/CivicErrorController.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/shared/CivicErrorController.java",
+    "originalSha256": "5c82130167c2f6d6cfd875d287ad7eefb456fddd88ed1ecd1ad9c9bc6333df70",
+    "sha256": "5c82130167c2f6d6cfd875d287ad7eefb456fddd88ed1ecd1ad9c9bc6333df70",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/shared/ComplaintStatus.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/shared/ComplaintStatus.java",
+    "originalSha256": "263a71c336df2458e3c5c7fb5c6de019a6e6066430233157830b189d4cd4aeb8",
+    "sha256": "263a71c336df2458e3c5c7fb5c6de019a6e6066430233157830b189d4cd4aeb8",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/shared/DatabaseErrorAdvice.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/shared/DatabaseErrorAdvice.java",
+    "originalSha256": "9ebf48d72eea72063fb8ac66dcb848b1e8df799b2a8dc4df0e7b1e095344b1e0",
+    "sha256": "9ebf48d72eea72063fb8ac66dcb848b1e8df799b2a8dc4df0e7b1e095344b1e0",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/shared/FeatureErrorAdvice.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/shared/FeatureErrorAdvice.java",
+    "originalSha256": "1aa78154e50def899aff3bd033938713f3fa06e7f4a4d9c08fe45d6c986d153e",
+    "sha256": "1aa78154e50def899aff3bd033938713f3fa06e7f4a4d9c08fe45d6c986d153e",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/shared/FeatureException.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/shared/FeatureException.java",
+    "originalSha256": "2746107409ad08d836a74090d120e6cc737a878e96d1f1f9da62c9eacaf592f3",
+    "sha256": "2746107409ad08d836a74090d120e6cc737a878e96d1f1f9da62c9eacaf592f3",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/shared/NavigationContributor.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/shared/NavigationContributor.java",
+    "originalSha256": "aba8c9cee3c08f9a4ac1700e6d04aeef2f799aceb0bda76754e4bc3e4767130f",
+    "sha256": "aba8c9cee3c08f9a4ac1700e6d04aeef2f799aceb0bda76754e4bc3e4767130f",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/shared/NavigationLink.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/shared/NavigationLink.java",
+    "originalSha256": "67198d4d16b144a7577134e61b8d81209c611595828fcc520bc622704c6ed616",
+    "sha256": "67198d4d16b144a7577134e61b8d81209c611595828fcc520bc622704c6ed616",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/shared/PageController.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/shared/PageController.java",
+    "originalSha256": "47bc785635dbcbbc5d2949688b85c27ff3a1c3871b06f77ba70416d733cbd4b0",
+    "sha256": "47bc785635dbcbbc5d2949688b85c27ff3a1c3871b06f77ba70416d733cbd4b0",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/shared/RequestIdFilter.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/shared/RequestIdFilter.java",
+    "originalSha256": "267249dee730d50b15098ef5522cf5c64ec28cec7595f344134f6191ff20ede2",
+    "sha256": "267249dee730d50b15098ef5522cf5c64ec28cec7595f344134f6191ff20ede2",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/shared/Role.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/shared/Role.java",
+    "originalSha256": "060ee9e309d5bb305e5ecf50dc33c01a8be81de4e951d4d2299b78109b39667f",
+    "sha256": "060ee9e309d5bb305e5ecf50dc33c01a8be81de4e951d4d2299b78109b39667f",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/shared/ViewContext.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/shared/ViewContext.java",
+    "originalSha256": "20c637d31a228693baf06f5a35d50d0e4353193c8cb6b474939cd50f84d36cda",
+    "sha256": "20c637d31a228693baf06f5a35d50d0e4353193c8cb6b474939cd50f84d36cda",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/java/com/civicpulse/shared/WorkspaceFeature.java",
+    "to": "backend/module 3/src/main/java/com/civicpulse/shared/WorkspaceFeature.java",
+    "originalSha256": "84387cd6656014af81156c3e20e3e4fa15c7b4f6865f7a3175c9c1044653f607",
+    "sha256": "84387cd6656014af81156c3e20e3e4fa15c7b4f6865f7a3175c9c1044653f607",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/resources/db/migration/V001__foundation.sql",
+    "to": "database/module 5/src/main/resources/db/migration/V001__foundation.sql",
+    "originalSha256": "75e1c80fe484b531362db483ae9cc9bb545309153bb8c1a1ec9504229c237eb4",
+    "sha256": "75e1c80fe484b531362db483ae9cc9bb545309153bb8c1a1ec9504229c237eb4",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/resources/db/migration/V100__reporting.sql",
+    "to": "database/module 5/src/main/resources/db/migration/V100__reporting.sql",
+    "originalSha256": "9aab5d8f111d696f29d77e68091159ad914d6c6c7c097fe4ebb613b6a78a3590",
+    "sha256": "9aab5d8f111d696f29d77e68091159ad914d6c6c7c097fe4ebb613b6a78a3590",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/resources/db/migration/V200__administration.sql",
+    "to": "database/module 5/src/main/resources/db/migration/V200__administration.sql",
+    "originalSha256": "68bf6831e461f1eb814e1c91ffe8391b9eb5ff6b794468b001c879d7b283e104",
+    "sha256": "68bf6831e461f1eb814e1c91ffe8391b9eb5ff6b794468b001c879d7b283e104",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/resources/db/migration/V300__resolution.sql",
+    "to": "database/module 5/src/main/resources/db/migration/V300__resolution.sql",
+    "originalSha256": "a41858e2f1ff56799bc35da32f0a176a757e68cd8d35e807fa76c5b94f7dd427",
+    "sha256": "a41858e2f1ff56799bc35da32f0a176a757e68cd8d35e807fa76c5b94f7dd427",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/resources/db/migration/V400__community_support.sql",
+    "to": "database/module 5/src/main/resources/db/migration/V400__community_support.sql",
+    "originalSha256": "efd75b6457241fddc0f04035e6cef2697fed70b457ed6bba79f3cf48d218669e",
+    "sha256": "efd75b6457241fddc0f04035e6cef2697fed70b457ed6bba79f3cf48d218669e",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/resources/static/assets/brand.svg",
+    "to": "frontend/module 1/src/main/resources/static/assets/brand.svg",
+    "originalSha256": "a20700d1689407765d06d062b3afdb3719f5d9f50d786f13962732c52b5774eb",
+    "sha256": "a20700d1689407765d06d062b3afdb3719f5d9f50d786f13962732c52b5774eb",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/resources/static/assets/css/app.css",
+    "to": "frontend/module 1/src/main/resources/static/assets/css/app.css",
+    "originalSha256": "1b4ad57f1605bd1f75508fdfbce054052cc5ffe2527101b90832621285ad1804",
+    "sha256": "1b4ad57f1605bd1f75508fdfbce054052cc5ffe2527101b90832621285ad1804",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/resources/static/assets/css/maps.css",
+    "to": "frontend/module 1/src/main/resources/static/assets/css/maps.css",
+    "originalSha256": "25f7e4b0f5b1f8b05464d6790e3121f998c15595f114a3e0aadc9c4afd1a9bd8",
+    "sha256": "25f7e4b0f5b1f8b05464d6790e3121f998c15595f114a3e0aadc9c4afd1a9bd8",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/resources/static/assets/css/reporting.css",
+    "to": "frontend/module 1/src/main/resources/static/assets/css/reporting.css",
+    "originalSha256": "d547c7b69d4276ccf86e1e3a73156b56ecd0ba5546e012c0ebd84faabf0246cf",
+    "sha256": "d547c7b69d4276ccf86e1e3a73156b56ecd0ba5546e012c0ebd84faabf0246cf",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/resources/static/assets/js/app.js",
+    "to": "frontend/module 1/src/main/resources/static/assets/js/app.js",
+    "originalSha256": "dbf395445ca9cf0f5c64f39d05a2285d6cf0afabe200f7929745a468beb6bf22",
+    "sha256": "dbf395445ca9cf0f5c64f39d05a2285d6cf0afabe200f7929745a468beb6bf22",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/resources/static/assets/js/maps.js",
+    "to": "frontend/module 1/src/main/resources/static/assets/js/maps.js",
+    "originalSha256": "289a5fa472de76bc50645320255257d0bcf317422fe38a8241cbbe8681be93c1",
+    "sha256": "289a5fa472de76bc50645320255257d0bcf317422fe38a8241cbbe8681be93c1",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/resources/static/assets/js/resolution.js",
+    "to": "frontend/module 2/src/main/resources/static/assets/js/resolution.js",
+    "originalSha256": "f1fc1826698884344af3dc9c3bcce60371472b5a19c4d544acc77edffe8d60af",
+    "sha256": "f1fc1826698884344af3dc9c3bcce60371472b5a19c4d544acc77edffe8d60af",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/resources/static/assets/vendor/bootstrap.min.css",
+    "to": "frontend/module 1/src/main/resources/static/assets/vendor/bootstrap.min.css",
+    "originalSha256": "d85327d99c7a3ee1f9b5d0500d1370acea3ad2db39c163c2f51f232baedbdede",
+    "sha256": "d85327d99c7a3ee1f9b5d0500d1370acea3ad2db39c163c2f51f232baedbdede",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/resources/static/assets/vendor/leaflet/leaflet.css",
+    "to": "frontend/module 1/src/main/resources/static/assets/vendor/leaflet/leaflet.css",
+    "originalSha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+    "sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/resources/static/assets/vendor/leaflet/leaflet.js",
+    "to": "frontend/module 1/src/main/resources/static/assets/vendor/leaflet/leaflet.js",
+    "originalSha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+    "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/resources/static/assets/vendor/leaflet/LICENSE",
+    "to": "frontend/module 1/src/main/resources/static/assets/vendor/leaflet/LICENSE",
+    "originalSha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb",
+    "sha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/error.jsp",
+    "to": "frontend/module 1/src/main/webapp/WEB-INF/views/error.jsp",
+    "originalSha256": "f12ae50b7f12c2fd74b66b49d3c78488884cfd24dd483a5fcbf6d832af8eb5eb",
+    "sha256": "f12ae50b7f12c2fd74b66b49d3c78488884cfd24dd483a5fcbf6d832af8eb5eb",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/home.jsp",
+    "to": "frontend/module 1/src/main/webapp/WEB-INF/views/home.jsp",
+    "originalSha256": "e0c691df0ae945f88f9e73394e7ffcb3b7cca01ef754708f8f287f03c4c704ec",
+    "sha256": "e0c691df0ae945f88f9e73394e7ffcb3b7cca01ef754708f8f287f03c4c704ec",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/account/dashboard.jsp",
+    "to": "frontend/module 1/src/main/webapp/WEB-INF/views/account/dashboard.jsp",
+    "originalSha256": "0431ab90ff398e0787f7f14d8fe4707a98e54b5d52cad5441c89050bde25a67d",
+    "sha256": "0431ab90ff398e0787f7f14d8fe4707a98e54b5d52cad5441c89050bde25a67d",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/account/profile.jsp",
+    "to": "frontend/module 1/src/main/webapp/WEB-INF/views/account/profile.jsp",
+    "originalSha256": "f598db04ca64cec026d8931f694ae6649fcb8648402769ac9a5b56319e8f1795",
+    "sha256": "f598db04ca64cec026d8931f694ae6649fcb8648402769ac9a5b56319e8f1795",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/administration/dashboard.jsp",
+    "to": "frontend/module 2/src/main/webapp/WEB-INF/views/administration/dashboard.jsp",
+    "originalSha256": "ec92a12668f4fe068edd215bd4960beecba80e0801835e05ea7d468a38a60293",
+    "sha256": "ec92a12668f4fe068edd215bd4960beecba80e0801835e05ea7d468a38a60293",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/administration/officers.jsp",
+    "to": "frontend/module 2/src/main/webapp/WEB-INF/views/administration/officers.jsp",
+    "originalSha256": "324fde579ff32816519f4cf57240d5b38a0656c03a9c61b5ea09d3f8ab9ce932",
+    "sha256": "324fde579ff32816519f4cf57240d5b38a0656c03a9c61b5ea09d3f8ab9ce932",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/administration/reports.jsp",
+    "to": "frontend/module 2/src/main/webapp/WEB-INF/views/administration/reports.jsp",
+    "originalSha256": "d5b428af543c9e6d2901dc01622b0a11cb075c4255bdc12eab78ecdf017cb150",
+    "sha256": "d5b428af543c9e6d2901dc01622b0a11cb075c4255bdc12eab78ecdf017cb150",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/auth/login.jsp",
+    "to": "frontend/module 1/src/main/webapp/WEB-INF/views/auth/login.jsp",
+    "originalSha256": "f977b0a429c163523d5cdc915e0565279fd7df27668e668dd4e7bc4c9e0c79f9",
+    "sha256": "f977b0a429c163523d5cdc915e0565279fd7df27668e668dd4e7bc4c9e0c79f9",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/auth/register.jsp",
+    "to": "frontend/module 1/src/main/webapp/WEB-INF/views/auth/register.jsp",
+    "originalSha256": "451b42c25091c6343adbdaf77cd7a7bab1a34b29c992874bc073e40b04765935",
+    "sha256": "451b42c25091c6343adbdaf77cd7a7bab1a34b29c992874bc073e40b04765935",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/complaints/dashboard.jsp",
+    "to": "frontend/module 1/src/main/webapp/WEB-INF/views/complaints/dashboard.jsp",
+    "originalSha256": "e120c0519be66cd1e4892cf5849452b0ddfd3df7ce96ccf9481890647c5fff91",
+    "sha256": "e120c0519be66cd1e4892cf5849452b0ddfd3df7ce96ccf9481890647c5fff91",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/complaints/detail.jsp",
+    "to": "frontend/module 1/src/main/webapp/WEB-INF/views/complaints/detail.jsp",
+    "originalSha256": "fc99596805a94fdf8f7d0553fa72237a5eaedb347c140418490635c5e6e29576",
+    "sha256": "fc99596805a94fdf8f7d0553fa72237a5eaedb347c140418490635c5e6e29576",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/complaints/form.jsp",
+    "to": "frontend/module 1/src/main/webapp/WEB-INF/views/complaints/form.jsp",
+    "originalSha256": "4966dfbef8340453112d3a504ec9f6d74829c811d77530da07375252c38a6081",
+    "sha256": "4966dfbef8340453112d3a504ec9f6d74829c811d77530da07375252c38a6081",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/complaints/list.jsp",
+    "to": "frontend/module 1/src/main/webapp/WEB-INF/views/complaints/list.jsp",
+    "originalSha256": "cb2aa57053f9f9b6bf2a44fd924d38537a815bdf12666fecc83f94bbf8de682b",
+    "sha256": "cb2aa57053f9f9b6bf2a44fd924d38537a815bdf12666fecc83f94bbf8de682b",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/fragments/footer.jspf",
+    "to": "frontend/module 1/src/main/webapp/WEB-INF/views/fragments/footer.jspf",
+    "originalSha256": "a7a632568b84bf7ffda3bcd370cb50aed4e545fa03c38e0c94545f6624e8d724",
+    "sha256": "a7a632568b84bf7ffda3bcd370cb50aed4e545fa03c38e0c94545f6624e8d724",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/fragments/head.jspf",
+    "to": "frontend/module 1/src/main/webapp/WEB-INF/views/fragments/head.jspf",
+    "originalSha256": "214bb615a5aa29a40e98091e1a403d2b14b1ca8a910c4795757d9eb2c10dba20",
+    "sha256": "214bb615a5aa29a40e98091e1a403d2b14b1ca8a910c4795757d9eb2c10dba20",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/fragments/header.jspf",
+    "to": "frontend/module 1/src/main/webapp/WEB-INF/views/fragments/header.jspf",
+    "originalSha256": "4349ef9b05d5db435230ec0b70482f02d189ee6fd745b64cfb2cb65ecfb4f1c2",
+    "sha256": "4349ef9b05d5db435230ec0b70482f02d189ee6fd745b64cfb2cb65ecfb4f1c2",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/insights/community.jsp",
+    "to": "frontend/module 1/src/main/webapp/WEB-INF/views/insights/community.jsp",
+    "originalSha256": "bab581bf03c47e1a6065f37c3566610a56fe770e3655be74d4ab829ad6588a17",
+    "sha256": "bab581bf03c47e1a6065f37c3566610a56fe770e3655be74d4ab829ad6588a17",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/insights/dashboard.jsp",
+    "to": "frontend/module 2/src/main/webapp/WEB-INF/views/insights/dashboard.jsp",
+    "originalSha256": "e35a66386205afabb00abbb7a6b89f70fd5dedd231aa72dd891ddef95657f97c",
+    "sha256": "e35a66386205afabb00abbb7a6b89f70fd5dedd231aa72dd891ddef95657f97c",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/resolution/dashboard.jsp",
+    "to": "frontend/module 2/src/main/webapp/WEB-INF/views/resolution/dashboard.jsp",
+    "originalSha256": "aff3702d7789691e89932aa70846e2a1dd6aa3bd696e5ee7b7b7e91c85327df9",
+    "sha256": "aff3702d7789691e89932aa70846e2a1dd6aa3bd696e5ee7b7b7e91c85327df9",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/resolution/work.jsp",
+    "to": "frontend/module 2/src/main/webapp/WEB-INF/views/resolution/work.jsp",
+    "originalSha256": "0395e16737f857f5f480b2de2c7ec0f0c12adfaeaddba3c658e7deafa6ac0c84",
+    "sha256": "0395e16737f857f5f480b2de2c7ec0f0c12adfaeaddba3c658e7deafa6ac0c84",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/complaints/fragments/filters.jspf",
+    "to": "frontend/module 1/src/main/webapp/WEB-INF/views/complaints/fragments/filters.jspf",
+    "originalSha256": "073849232dd4e842d1e3e7b1436697dcee950e767447c0d78f81f24463139bdd",
+    "sha256": "4f0c3486f102b6ebb4a2fac2362174ce8c1887d25c3056318543d89565031900",
+    "change": "Explicit UTF-8 fragment directive"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/complaints/fragments/metrics.jspf",
+    "to": "frontend/module 1/src/main/webapp/WEB-INF/views/complaints/fragments/metrics.jspf",
+    "originalSha256": "f9eaec3cc4020a106927dffe848f75364550ddffee23c8aea7f0bbf8f4289f1b",
+    "sha256": "d1b6c8222fac6a0c89a9bb980bfc30a253535cdeaf89b5367e2a7cff9d40fad9",
+    "change": "Explicit UTF-8 fragment directive"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/complaints/fragments/pagination.jspf",
+    "to": "frontend/module 1/src/main/webapp/WEB-INF/views/complaints/fragments/pagination.jspf",
+    "originalSha256": "8ed8fd99598794f96eacd82605af6cfbf4b6e94bb53f488c61c3324c2cbac8d3",
+    "sha256": "f957c530289774fbd50df2f21f70cdb8e8a3ad1206d08d67a5113087fe7d2484",
+    "change": "Explicit UTF-8 fragment directive"
+  },
+  {
+    "from": "src/main/webapp/WEB-INF/views/complaints/fragments/report-list.jspf",
+    "to": "frontend/module 1/src/main/webapp/WEB-INF/views/complaints/fragments/report-list.jspf",
+    "originalSha256": "5909f744b851f68654cbc7245061f9bdcdc994e291e600391737cd9cf7293fe6",
+    "sha256": "f13d49af448b5964de36b8b60b0d8f93a551b861d78b464234704ee1bb103e16",
+    "change": "Explicit UTF-8 fragment directive"
+  },
+  {
+    "from": "src/test/resources/application-test.properties",
+    "to": "backend/module 3/src/test/resources/application-test.properties",
+    "originalSha256": "6df41f05da52ef290daf6b938164eb371ca6c088ed41b38526f9212713b7b378",
+    "sha256": "6df41f05da52ef290daf6b938164eb371ca6c088ed41b38526f9212713b7b378",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/test/java/com/civicpulse/AdministrationIntegrationTest.java",
+    "to": "backend/module 4/src/test/java/com/civicpulse/AdministrationIntegrationTest.java",
+    "originalSha256": "9c21ee0c4e90ce040a8d06a230cec11196f2b728d760c779974bad1337fd6c4a",
+    "sha256": "9c21ee0c4e90ce040a8d06a230cec11196f2b728d760c779974bad1337fd6c4a",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/test/java/com/civicpulse/FeatureTestSupport.java",
+    "to": "backend/module 3/src/test/java/com/civicpulse/FeatureTestSupport.java",
+    "originalSha256": "5c6757a9dda9848fc542509fb04b1f26870891a17ab6bdb3fb393f1899a3af5a",
+    "sha256": "5c6757a9dda9848fc542509fb04b1f26870891a17ab6bdb3fb393f1899a3af5a",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/test/java/com/civicpulse/FoundationIntegrationTest.java",
+    "to": "backend/module 3/src/test/java/com/civicpulse/FoundationIntegrationTest.java",
+    "originalSha256": "f745326e2de92a2b63edb6053a9354faaf8d31d67a297164d8cef44478872a75",
+    "sha256": "f745326e2de92a2b63edb6053a9354faaf8d31d67a297164d8cef44478872a75",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/test/java/com/civicpulse/InsightsIntegrationTest.java",
+    "to": "backend/module 3/src/test/java/com/civicpulse/InsightsIntegrationTest.java",
+    "originalSha256": "6b24dc7f2443dca322dfaeb255b6766d76f67e56c5895c006c248440d62c1c17",
+    "sha256": "6b24dc7f2443dca322dfaeb255b6766d76f67e56c5895c006c248440d62c1c17",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/test/java/com/civicpulse/ReportingIntegrationTest.java",
+    "to": "backend/module 3/src/test/java/com/civicpulse/ReportingIntegrationTest.java",
+    "originalSha256": "22fc85c6179574b688649eed13797cc131e364cb34639f19ef6a26f576f18e08",
+    "sha256": "22fc85c6179574b688649eed13797cc131e364cb34639f19ef6a26f576f18e08",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/test/java/com/civicpulse/ResolutionIntegrationTest.java",
+    "to": "backend/module 4/src/test/java/com/civicpulse/ResolutionIntegrationTest.java",
+    "originalSha256": "8b00efc17d9bd57a7498f2c960c33a47eb56f2983c0748528fe4984b2eae7a04",
+    "sha256": "8b00efc17d9bd57a7498f2c960c33a47eb56f2983c0748528fe4984b2eae7a04",
+    "change": "Move only; byte-identical"
+  },
+  {
+    "from": "src/test/java/com/civicpulse/TestDataCleaner.java",
+    "to": "backend/module 3/src/test/java/com/civicpulse/TestDataCleaner.java",
+    "originalSha256": "b93ec97b47c5e87e9025bc396bfbdd73d9acf78b01caef5bfe363273e40037b8",
+    "sha256": "b93ec97b47c5e87e9025bc396bfbdd73d9acf78b01caef5bfe363273e40037b8",
+    "change": "Move only; byte-identical"
+  }
+]
