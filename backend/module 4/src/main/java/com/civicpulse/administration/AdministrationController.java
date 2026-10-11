@@ -25,11 +25,14 @@ public class AdministrationController {
   public String reports(
       @RequestParam(defaultValue = "") String status,
       @RequestParam(defaultValue = "") String q,
+      @RequestParam(required = false) Long category,
       @RequestParam(defaultValue = "0") int page,
       Model m) {
     int p = ComplaintController.page(page);
-    m.addAttribute("reports", dao.list("all", null, status, q, p, 10));
-    m.addAttribute("total", dao.count("all", null, status, q));
+    m.addAttribute("reports", dao.list("all", null, status, q, category, p, 10));
+    m.addAttribute("total", dao.count("all", null, status, q, category));
+    m.addAttribute("categories", dao.categories());
+    m.addAttribute("categoryFilter", category);
     m.addAttribute("page", p);
     m.addAttribute("statusFilter", status);
     m.addAttribute("searchQuery", q);

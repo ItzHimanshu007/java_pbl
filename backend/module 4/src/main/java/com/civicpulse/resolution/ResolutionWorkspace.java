@@ -13,9 +13,14 @@ import org.springframework.ui.Model;
 public class ResolutionWorkspace
     implements WorkspaceFeature, NavigationContributor, DetailContributor {
   private final ComplaintDao dao;
+  private final ComplaintAccess access;
+  private final com.civicpulse.insights.InsightsService insights;
 
-  public ResolutionWorkspace(ComplaintDao dao) {
+  public ResolutionWorkspace(
+      ComplaintDao dao, ComplaintAccess access, com.civicpulse.insights.InsightsService insights) {
     this.dao = dao;
+    this.access = access;
+    this.insights = insights;
   }
 
   public Role role() {
@@ -28,7 +33,10 @@ public class ResolutionWorkspace
 
   public String render(CurrentUser u, Model m) {
     m.addAttribute("totals", dao.totals("assigned", u.id()));
-    m.addAttribute("reports", dao.list("assigned", u.id(), null, null, 0, 5));
+    m.addAttribute("reports", dao.list("assigned", u.id(), null, null, 0, 6));
+    m.addAttribute("overdueReports", insights.overdue(u, 5));
+    m.addAttribute("overdueCount", insights.overdueCount(u));
+    m.addAttribute("averageHours", insights.averageHours(u));
     return "resolution/dashboard";
   }
 
@@ -43,11 +51,7 @@ public class ResolutionWorkspace
         u.role() == Role.OFFICER && Long.valueOf(u.id()).equals(c.assignedOfficerId());
     m.addAttribute("canStart", assigned && c.status() == ComplaintStatus.ASSIGNED);
     m.addAttribute("canProgress", assigned && c.status() == ComplaintStatus.IN_PROGRESS);
-    m.addAttribute(
-        "canVerify",
-        u.role() == Role.CITIZEN
-            && c.reporterId() == u.id()
-            && c.status() == ComplaintStatus.RESOLVED);
+    m.addAttribute("canVerify", access.isOwner(c, u) && c.status() == ComplaintStatus.RESOLVED);
     m.addAttribute("resolutionInstalled", true);
   }
 }

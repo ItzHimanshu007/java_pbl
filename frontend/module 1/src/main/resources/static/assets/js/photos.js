@@ -10,7 +10,7 @@
    if(!['image/png','image/jpeg'].includes(file.type)||file.size>5*1024*1024){input.value='';figure.hidden=true;remove.hidden=true;message.textContent=t('Choose a PNG or JPEG photograph smaller than 5 MB.');return;}
    url=URL.createObjectURL(file);img.src=url;caption.textContent=file.name+' · '+(file.size/1024/1024).toFixed(2)+' MB';message.textContent=t('Photo selected. Check the preview before submitting.');
   };
-  input.addEventListener('change',preview);remove.addEventListener('click',()=>{input.value='';preview();message.textContent=t('Photo removed.');});
+  input.addEventListener('change',preview);remove.addEventListener('click',()=>{input.value='';preview();message.textContent=t('Photo removed.');input.dispatchEvent(new Event('change'));});
   const useFile=file=>{const transfer=new DataTransfer();transfer.items.add(file);input.files=transfer.files;preview();if(input.files.length)document.dispatchEvent(new CustomEvent('civic:photo-captured'));};
   const stop=()=>{stream?.getTracks().forEach(track=>track.stop());stream=null;if(video)video.srcObject=null;if(dialog?.open)dialog.close();};
   camera.addEventListener('click',async()=>{

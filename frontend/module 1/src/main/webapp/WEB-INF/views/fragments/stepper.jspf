@@ -1,0 +1,9 @@
+<%@ page pageEncoding="UTF-8" %>
+<%-- Expects stepIndex (0-4) and stepStatus; optional stepCompact. --%>
+<ol class="stepper ${stepStatus eq 'REJECTED' ? 'is-rejected' : ''} ${stepCompact ? 'stepper-compact' : ''}" aria-label="${ui['Progress']}: ${ui[stepStatus]}">
+ <c:forEach items="${['Submitted','Assigned','Work in progress','Repair done','Verified closed']}" var="stepLabel" varStatus="s">
+  <c:set var="stepDone" value="${s.index lt stepIndex or stepStatus eq 'CLOSED'}"/>
+  <li class="step ${stepDone ? 'is-done' : ''} ${s.index eq stepIndex and stepStatus ne 'CLOSED' ? 'is-current' : ''}" ${s.index eq stepIndex ? 'aria-current="step"' : ''}><span class="step-dot"><c:choose><c:when test="${stepDone}"><cp:icon name="check"/></c:when><c:when test="${stepStatus eq 'REJECTED' and s.index eq 0}"><cp:icon name="x"/></c:when><c:otherwise><span>${s.index + 1}</span></c:otherwise></c:choose></span><span class="step-label">${stepStatus eq 'REJECTED' and s.index eq 0 ? ui['Rejected'] : ui[stepLabel]}</span></li>
+ </c:forEach>
+</ol>
+<c:set var="stepCompact" value="${false}"/>

@@ -1,9 +1,9 @@
 <%@ page pageEncoding="UTF-8" %>
-<section class="metric-grid" aria-label="${ui['Report counts']}">
- <div class="metric"><span>${ui['Awaiting review']}</span><strong><c:out value="${totals['REPORTED']}"/></strong></div>
- <div class="metric"><span>${ui['Assigned']}</span><strong><c:out value="${totals['ASSIGNED']}"/></strong></div>
- <div class="metric"><span>${ui['In progress']}</span><strong><c:out value="${totals['IN_PROGRESS']}"/></strong></div>
- <div class="metric"><span>${ui['Ready to verify']}</span><strong><c:out value="${totals['RESOLVED']}"/></strong></div>
- <div class="metric"><span>${ui['Verified closed']}</span><strong><c:out value="${totals['CLOSED']}"/></strong></div>
- <div class="metric"><span>${ui['Rejected']}</span><strong><c:out value="${totals['REJECTED']}"/></strong></div>
+<section class="kpi-row" aria-label="${ui['Report counts']}">
+ <div class="kpi"><span class="kpi-icon tone-warn"><cp:icon name="clock"/></span><div><div class="kpi-value"><c:out value="${totals['REPORTED']}"/></div><div class="kpi-label">${ui['Awaiting review']}</div></div></div>
+ <div class="kpi"><span class="kpi-icon tone-info"><cp:icon name="user-round"/></span><div><div class="kpi-value"><c:out value="${totals['ASSIGNED']}"/></div><div class="kpi-label">${ui['Assigned']}</div></div></div>
+ <div class="kpi"><span class="kpi-icon tone-orange"><cp:icon name="hard-hat"/></span><div><div class="kpi-value"><c:out value="${totals['IN_PROGRESS']}"/></div><div class="kpi-label">${ui['In progress']}</div></div></div>
+ <div class="kpi"><span class="kpi-icon tone-violet"><cp:icon name="check"/></span><div><div class="kpi-value"><c:out value="${totals['RESOLVED']}"/></div><div class="kpi-label">${ui['Ready to verify']}</div></div></div>
+ <div class="kpi"><span class="kpi-icon tone-ok"><cp:icon name="badge-check"/></span><div><div class="kpi-value"><c:out value="${totals['CLOSED']}"/></div><div class="kpi-label">${ui['Verified closed']}</div></div></div>
+ <div class="kpi"><span class="kpi-icon tone-bad"><cp:icon name="x"/></span><div><div class="kpi-value"><c:out value="${totals['REJECTED']}"/></div><div class="kpi-label">${ui['Rejected']}</div></div></div>
 </section>

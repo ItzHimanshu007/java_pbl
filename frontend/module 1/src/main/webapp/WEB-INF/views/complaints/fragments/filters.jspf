@@ -1,6 +1,8 @@
 <%@ page pageEncoding="UTF-8" %>
-<form method="get" class="filter-bar">
- <div><label for="q">${ui['Search title or reference']}</label><input id="q" name="q" maxlength="120" value="<c:out value='${searchQuery}'/>" placeholder="${ui['Search reports']}"></div>
- <div><label for="status">${ui['Status']}</label><select id="status" name="status"><option value="">${ui['All statuses']}</option><c:forEach items="${statuses}" var="s"><option value="${s}" ${statusFilter eq s ? 'selected' : ''}>${ui[s]}</option></c:forEach></select></div>
- <button class="button button-primary" type="submit">${ui['Apply filters']}</button>
+<form method="get" class="card filter-bar form" role="search">
+ <c:if test="${trash}"><input type="hidden" name="trash" value="true"></c:if>
+ <div class="field field-search"><label for="q">${ui['Search title or reference']}</label><input id="q" name="q" maxlength="120" value="<c:out value='${searchQuery}'/>" placeholder="${ui['e.g. pothole or CP-2026-…']}"></div>
+ <div class="field"><label for="status">${ui['Status']}</label><select id="status" name="status"><option value="">${ui['All statuses']}</option><c:forEach items="${statuses}" var="s"><option value="${s}" ${statusFilter eq s ? 'selected' : ''}>${ui[s]}</option></c:forEach></select></div>
+ <c:if test="${not empty categories}"><div class="field"><label for="category">${ui['Service']}</label><select id="category" name="category"><option value="">${ui['All services']}</option><c:forEach items="${categories}" var="k"><option value="${k.id}" ${categoryFilter eq k.id ? 'selected' : ''}>${ui[k.name]}</option></c:forEach></select></div></c:if>
+ <div class="row"><button class="btn btn-primary" type="submit"><cp:icon name="filter"/>${ui['Apply filters']}</button><a class="btn btn-ghost" href="?">${ui['Reset']}</a></div>
 </form>

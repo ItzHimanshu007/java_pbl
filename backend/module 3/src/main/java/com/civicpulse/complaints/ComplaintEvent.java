@@ -18,6 +18,11 @@ public record ComplaintEvent(
     return action.replace('_', ' ');
   }
 
+  /** Dictionary key for the timeline label, e.g. event.WORK_STARTED. */
+  public String getLabelKey() {
+    return "event." + action;
+  }
+
   public String getToStatus() {
     return toStatus;
   }

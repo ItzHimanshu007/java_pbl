@@ -1,6 +1,7 @@
 package com.civicpulse.complaints;
 
 import com.civicpulse.shared.ComplaintStatus;
+import java.time.Duration;
 import java.time.Instant;
 
 public record Complaint(
@@ -22,7 +23,11 @@ public record Complaint(
     Instant createdAt,
     Instant updatedAt,
     Instant resolvedAt,
-    Instant closedAt) {
+    Instant closedAt,
+    String categoryCode,
+    int slaHours,
+    boolean anonymous,
+    String reporterHash) {
   public long getId() {
     return id;
   }
@@ -89,5 +94,53 @@ public record Complaint(
 
   public boolean isEditable() {
     return false;
+  }
+
+  public String getCategoryCode() {
+    return categoryCode == null || categoryCode.isBlank() ? "other" : categoryCode;
+  }
+
+  public int getSlaHours() {
+    return slaHours;
+  }
+
+  public boolean isAnonymous() {
+    return anonymous;
+  }
+
+  /** Target resolution time from the category's service level. */
+  public Instant dueAt() {
+    return createdAt.plus(Duration.ofHours(Math.max(1, slaHours)));
+  }
+
+  public String getDueAt() {
+    return dueAt().toString();
+  }
+
+  /** Still waiting on the department after its target resolution time. */
+  public boolean isOverdue() {
+    return (status == ComplaintStatus.REPORTED
+            || status == ComplaintStatus.ASSIGNED
+            || status == ComplaintStatus.IN_PROGRESS)
+        && Instant.now().isAfter(dueAt());
+  }
+
+  public boolean isActive() {
+    return status != ComplaintStatus.CLOSED && status != ComplaintStatus.REJECTED;
+  }
+
+  /** Position in Reported → Assigned → In progress → Resolved → Closed (0-4). */
+  public int getStep() {
+    return switch (status) {
+      case REPORTED, REJECTED -> 0;
+      case ASSIGNED -> 1;
+      case IN_PROGRESS -> 2;
+      case RESOLVED -> 3;
+      case CLOSED -> 4;
+    };
+  }
+
+  public int getProgress() {
+    return com.civicpulse.insights.InsightsService.progress(status.name());
   }
 }

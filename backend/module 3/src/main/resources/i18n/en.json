@@ -17,5 +17,16 @@
   "ADMIN": "Administrator",
   "high": "High",
   "medium": "Medium",
-  "low": "Low"
+  "low": "Low",
+  "event.REPORTED": "Complaint registered",
+  "event.ASSIGNED": "Assigned to an officer",
+  "event.REASSIGNED": "Reassigned",
+  "event.REJECTED": "Rejected",
+  "event.WORK_STARTED": "Work started",
+  "event.PROGRESS_UPDATE": "Progress update",
+  "event.REPAIR_SUBMITTED": "Repair done, evidence submitted",
+  "event.CITIZEN_CONFIRMED": "Citizen confirmed the fix",
+  "event.REOPENED": "Reopened for more work",
+  "event.DELETED": "Report deleted",
+  "event.RESTORED": "Report restored"
 }

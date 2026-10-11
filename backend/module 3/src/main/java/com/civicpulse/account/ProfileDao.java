@@ -61,6 +61,17 @@ public class ProfileDao {
     jdbc.update("UPDATE users SET display_name=? WHERE id=?", f.getDisplayName().strip(), id);
   }
 
+  /** Saves only the given display preferences; {@code null} leaves a preference unchanged. */
+  @Transactional
+  public void savePreferences(long id, String language, String theme) {
+    jdbc.queryForList("SELECT id FROM users WHERE id=? FOR UPDATE", id);
+    if (jdbc.queryForObject("SELECT COUNT(*) FROM account_profiles WHERE user_id=?", Long.class, id)
+        == 0) jdbc.update("INSERT INTO account_profiles(user_id) VALUES(?)", id);
+    if (language != null)
+      jdbc.update("UPDATE account_profiles SET language=? WHERE user_id=?", language, id);
+    if (theme != null) jdbc.update("UPDATE account_profiles SET theme=? WHERE user_id=?", theme, id);
+  }
+
   private String clean(String v) {
     return v == null ? "" : v.strip();
   }
