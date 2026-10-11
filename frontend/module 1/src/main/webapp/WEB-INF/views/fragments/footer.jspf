@@ -1,3 +1,11 @@
 <%@ page pageEncoding="UTF-8" %>
-<footer class="site-footer"><div class="container footer-inner"><span><strong>CivicPulse</strong> ${ui['· Report. Track. Resolve.']}</span><span>${ui['Small reports. Better neighbourhoods.']}</span></div></footer>
+<footer class="site-footer">
+ <div class="container footer-grid">
+  <div class="footer-col"><div class="footer-brand"><img src="${ctx}/assets/brand.svg" alt=""><strong>CivicPulse ${ui['Jaipur']}</strong></div><p>${ui['Report potholes, broken streetlights, garbage and other civic problems. Every complaint is routed to the right department and tracked until the citizen confirms the repair.']}</p></div>
+  <div class="footer-col"><h3>${ui['Citizen services']}</h3><ul><li><a href="${ctx}/citizen/reports/new">${ui['Report an issue']}</a></li><li><a href="${ctx}/track">${ui['Track complaint']}</a></li><li><a href="${ctx}/community">${ui['Community map']}</a></li><li><a href="${ctx}/insights">${ui['Insights']}</a></li></ul></div>
+  <div class="footer-col"><h3>${ui['About the portal']}</h3><ul><li><a href="${ctx}/#how-it-works">${ui['How it works']}</a></li><li><a href="${ctx}/#services">${ui['Service catalogue']}</a></li><li><a href="${ctx}/#anonymous">${ui['Anonymous reporting']}</a></li><li><a href="${ctx}/#zones">${ui['Zones served']}</a></li></ul></div>
+  <div class="footer-col"><h3>${ui['Emergency helplines']}</h3><ul><li class="footer-helpline"><span>${ui['Emergency']}</span><strong>112</strong></li><li class="footer-helpline"><span>${ui['Ambulance']}</span><strong>108</strong></li><li class="footer-helpline"><span>${ui['Fire']}</span><strong>101</strong></li><li class="footer-helpline"><span>${ui['Rajasthan Sampark']}</span><strong>181</strong></li></ul></div>
+ </div>
+ <div class="footer-bottom"><div class="container"><span>© 2026 CivicPulse ${ui['Jaipur']} · ${ui['Java project-based learning (PBL) project']}</span><span>${ui['This is not an official government website. For emergencies call 112.']}</span></div></div>
+</footer>
 </body></html>

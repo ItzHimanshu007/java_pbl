@@ -1,39 +1,53 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<c:set var="pageTitle" value="A better neighbourhood starts with you"/>
+<c:set var="pageTitle" value="Report and track civic issues in Jaipur"/>
 <%@ include file="fragments/head.jspf" %><%@ include file="fragments/header.jspf" %>
 <main id="main">
-  <section class="hero container">
-    <div class="hero-copy"><span class="eyebrow"><span class="status-dot"></span> ${ui['FOR THE PLACES WE CALL HOME']}</span>
-      <h1>${ui['A small report.']}<br>${ui['A']} <em>${ui['better']}</em><br>${ui['neighbourhood.']}</h1>
-      <p class="hero-description">${ui['A clearer path from a local problem to a visible repair. Bring your community’s roads, lights and shared spaces into focus.']}</p>
-      <div class="hero-actions"><a class="button button-primary" href="<c:url value='/register'/>">${ui['Create your citizen account']} <span aria-hidden="true">↗</span></a><a class="text-link" href="#how-it-works">${ui['See how it works']} <span aria-hidden="true">↓</span></a></div>
-      <div class="hero-note"><span class="small-icon" aria-hidden="true">✓</span> ${ui['One place to report, follow progress and verify a repair.']}</div>
-    </div>
-    <div class="city-panel" aria-label="${ui['Illustration of a neighbourhood with civic issue location pins']}" role="img">
-      <div class="city-panel-top"><span class="eyebrow">${ui['OUR SHARED SPACES']}</span><span class="pill pill-light">${ui['A community perspective']}</span></div>
-      <svg class="city-art" viewBox="0 0 500 380" aria-hidden="true">
-        <defs><pattern id="mapgrid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M 28 0 L 0 0 0 28" fill="none" stroke="#bcd0bd" stroke-width=".7"/></pattern></defs>
-        <rect width="500" height="380" fill="url(#mapgrid)"/>
-        <path d="M-20 285L200 174L520 322M74-20L270 390" fill="none" stroke="#fffdf2" stroke-width="48"/>
-        <path d="M-20 285L200 174L520 322M74-20L270 390" fill="none" stroke="#cebd98" stroke-width="1.3" stroke-dasharray="7 7"/>
-        <g stroke="#164d3c" stroke-width="2" stroke-linejoin="round">
-          <path d="M235 70L327 25L407 67L315 113Z" fill="#f7e8b6"/><path d="M235 70V154L315 198V113Z" fill="#e6ca88"/><path d="M315 113V198L407 151V67Z" fill="#d6b374"/>
-          <path d="M60 132L121 101L180 131L118 163Z" fill="#fffaf0"/><path d="M60 132V197L118 229V163Z" fill="#9fbc9c"/><path d="M118 163V229L180 197V131Z" fill="#6d9d7f"/>
-          <path d="M328 240L384 212L442 243L385 273Z" fill="#fffaf0"/><path d="M328 240V290L385 321V273Z" fill="#d4b596"/><path d="M385 273V321L442 290V243Z" fill="#b98d70"/>
-          <path d="M338 95V117M359 84V106M380 73V95M338 137V159M359 126V148M380 115V137" stroke="#f9efd4" stroke-width="9"/>
-          <path d="M135 161V184M156 149V172" stroke="#e3f0d7" stroke-width="8"/>
-        </g>
-        <g fill="#4c8060"><ellipse cx="213" cy="309" rx="35" ry="14" fill="#adc4a0"/><rect x="210" y="265" width="6" height="43" fill="#6c5d42"/><circle cx="213" cy="255" r="25"/><circle cx="196" cy="266" r="17"/><circle cx="230" cy="265" r="18"/>
-          <rect x="439" y="152" width="5" height="36" fill="#6c5d42"/><circle cx="441" cy="144" r="23"/>
-          <rect x="39" y="300" width="5" height="30" fill="#6c5d42"/><circle cx="41" cy="294" r="19"/></g>
-        <g fill="#164d3c" stroke="#fffdf2" stroke-width="3"><path d="M209 94C182 94 181 127 209 149C237 127 236 94 209 94Z"/><path d="M103 237C76 237 75 270 103 292C131 270 130 237 103 237Z"/><path d="M410 167C383 167 382 200 410 222C438 200 437 167 410 167Z"/></g>
-        <g fill="#f0d37c"><circle cx="209" cy="114" r="7"/><circle cx="103" cy="257" r="7"/><circle cx="410" cy="187" r="7"/></g>
-      </svg>
-      <div class="city-caption"><span class="pulse-symbol" aria-hidden="true">⌁</span><div><strong>${ui['Every place has a story.']}</strong><span>${ui['Make the next chapter a little better.']}</span></div></div>
-    </div>
-  </section>
-  <section id="how-it-works" class="process-section"><div class="container"><div class="section-heading"><span class="eyebrow">${ui['A CLEARER PATH FORWARD']}</span><h2>${ui['From noticed to resolved.']}</h2><p>${ui['The complaint journey, with a citizen’s voice at every step.']}</p></div>
-    <div class="process-grid"><article class="process-card"><span class="step-number">01</span><h3>${ui['Report']}</h3><p>${ui['Describe the problem, add a photo and pinpoint the location.']}</p></article><article class="process-card"><span class="step-number">02</span><h3>${ui['Track']}</h3><p>${ui['Follow the assignment and work updates in one clear timeline.']}</p></article><article class="process-card"><span class="step-number">03</span><h3>${ui['Resolve']}</h3><p>${ui['Review repair evidence and confirm that the problem is fixed.']}</p></article></div>
-  </div></section>
-</main><%@ include file="fragments/footer.jspf" %>
+ <section class="hero"><div class="container hero-inner">
+  <div class="hero-copy">
+   <span class="eyebrow"><cp:icon name="sparkles"/>${ui['Jaipur 311 · Citizen services']}</span>
+   <h1 class="hero-title">${ui['Report it. Track it.']} <em>${ui['Get it fixed.']}</em></h1>
+   <p class="hero-lead">${ui['Potholes, dark streetlights, overflowing garbage or sewer leaks anywhere in Jaipur — report with a photo and a map pin. Your complaint goes to the right department and you can follow every step until you confirm the repair.']}</p>
+   <div class="hero-cta"><a class="btn btn-accent btn-lg" href="${ctx}/citizen/reports/new"><cp:icon name="plus"/>${ui['Report an issue']}</a><a class="btn btn-outline btn-lg" href="${ctx}/community"><cp:icon name="map"/>${ui['View community map']}</a></div>
+   <form class="track-box" method="get" action="${ctx}/track"><label for="hero-ref"><cp:icon name="scan-search"/>${ui['Track your complaint']}</label><div class="track-box-row"><input id="hero-ref" name="ref" maxlength="40" required placeholder="CP-2026-XXXXXXXXXXXX" autocomplete="off"><button class="btn btn-primary" type="submit">${ui['Track']}<cp:icon name="arrow-right"/></button></div><p class="help mt-1">${ui['No sign-in needed. Enter the reference number from your acknowledgement.']}</p></form>
+   <div class="hero-badges"><span><cp:icon name="circle-check"/>${ui['Anonymous reporting']}</span><span><cp:icon name="circle-check"/>${ui['Hindi and English']}</span><span><cp:icon name="circle-check"/>${ui['Photo evidence before and after']}</span></div>
+  </div>
+  <div class="hero-visual"><%@ include file="fragments/hero-art.jspf" %></div>
+ </div></section>
+
+ <c:if test="${not empty publicStats}"><section class="stats-band" aria-label="${ui['City-wide complaint figures']}"><div class="container stats-grid">
+  <div class="stat"><strong><c:out value="${publicStats.total}"/></strong><span>${ui['Complaints registered']}</span></div>
+  <div class="stat"><strong><c:out value="${publicStats.resolved}"/></strong><span>${ui['Resolved']} (<c:out value="${publicStats.resolvedPercent}"/>%)</span></div>
+  <div class="stat"><strong><c:out value="${publicStats.inProgress}"/></strong><span>${ui['Being worked on']}</span></div>
+  <div class="stat"><strong><c:out value="${publicStats.awaiting}"/></strong><span>${ui['Awaiting review']}</span></div>
+  <div class="stat"><strong><c:out value="${publicStats.averageHours}"/></strong><span>${ui['Average hours to verified fix']}</span></div>
+  <div class="stat"><strong><c:out value="${publicStats.zones}"/></strong><span>${ui['City zones covered']}</span></div>
+ </div></section></c:if>
+
+ <section class="section" id="services"><div class="container">
+  <div class="section-head"><span class="eyebrow">${ui['Service catalogue']}</span><h2>${ui['What would you like to report?']}</h2><p>${ui['Choose a service. Each one is routed to its department with a target resolution time.']}</p></div>
+  <div class="service-grid">
+   <c:forEach items="${serviceCategories}" var="sc"><a class="service-tile" href="${ctx}/citizen/reports/new?category=${sc.id}"><span class="cat-tile"><cp:icon name="cat-${sc.code}"/></span><span><strong>${ui[sc.name]}</strong><small><cp:icon name="timer"/>${ui['Target']}: <c:out value="${sc.slaAmount}"/> ${ui[sc.slaUnit]}</small></span></a></c:forEach>
+  </div>
+ </div></section>
+
+ <section class="section section-alt" id="how-it-works"><div class="container">
+  <div class="section-head"><span class="eyebrow">${ui['How it works']}</span><h2>${ui['From your phone to a verified repair']}</h2><p>${ui['Every complaint follows the same accountable path, with a public timeline.']}</p></div>
+  <ol class="process">
+   <li class="process-step"><span class="num">01</span><span class="cat-tile"><cp:icon name="camera"/></span><h3>${ui['Report with a photo']}</h3><p>${ui['Pick a service, add a photo and drop a pin anywhere in Jaipur. Report anonymously if you prefer.']}</p></li>
+   <li class="process-step"><span class="num">02</span><span class="cat-tile"><cp:icon name="building-2"/></span><h3>${ui['Routed to the department']}</h3><p>${ui['An administrator reviews it and assigns an officer from the responsible department.']}</p></li>
+   <li class="process-step"><span class="num">03</span><span class="cat-tile"><cp:icon name="hard-hat"/></span><h3>${ui['Work is tracked']}</h3><p>${ui['The officer posts updates and uploads an after photo when the repair is done.']}</p></li>
+   <li class="process-step"><span class="num">04</span><span class="cat-tile"><cp:icon name="badge-check"/></span><h3>${ui['You verify the fix']}</h3><p>${ui['Compare before and after. Close the complaint, or reopen it if more work is needed.']}</p></li>
+  </ol>
+ </div></section>
+
+ <section class="section" id="anonymous"><div class="container">
+  <div class="callout"><span class="cat-tile"><cp:icon name="venetian-mask"/></span><div><h3>${ui['Report without revealing who you are']}</h3><p>${ui['Turn on anonymous reporting and your name, email and account are never attached to the complaint. Only a one-way encrypted fingerprint (HMAC-SHA256) is stored, so you can still track, verify or delete it — but officers and administrators cannot see who reported it.']}</p></div><a class="btn btn-light" href="${ctx}/citizen/reports/new"><cp:icon name="shield-check"/>${ui['Report anonymously']}</a></div>
+ </div></section>
+
+ <section class="section section-alt" id="zones"><div class="container">
+  <div class="section-head"><span class="eyebrow">${ui['Zones served']}</span><h2>${ui['Across every part of Jaipur']}</h2><p>${ui['From the Walled City to Jagatpura — search more than 100 localities by name in English or Hindi.']}</p></div>
+  <div class="zone-cloud"><c:forEach items="${zones}" var="z"><a class="zone-chip" href="${ctx}/community?latitude=${z.latitude}&amp;longitude=${z.longitude}&amp;radius=5"><cp:icon name="map-pin"/><c:out value="${language eq 'hi' ? z.hindi : z.name}"/><small><c:out value="${z.places.size()}"/> ${ui['localities']}</small></a></c:forEach></div>
+ </div></section>
+</main>
+<%@ include file="fragments/footer.jspf" %>

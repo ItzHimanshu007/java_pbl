@@ -1,8 +1,16 @@
 <%@ page pageEncoding="UTF-8" %>
 <div class="report-list">
- <c:if test="${empty reports}"><div class="empty-state"><h3>${ui['No reports in this view.']}</h3><p>${ui['New reports and updates will appear here.']}</p></div></c:if>
- <c:forEach items="${reports}" var="row"><article class="report-row">
-  <div><span class="reference"><c:out value="${row.reference}"/></span><h3><a href="<c:url value='/reports/${row.id}'/>"><c:out value="${row.title}"/></a></h3><p>${ui[row.category]} · <c:out value="${row.address}"/></p><time datetime="${row.createdAt}"><c:out value="${row.createdAt}"/></time></div>
-  <div class="report-row-end"><span class="status status-${row.status}">${ui[row.status]}</span><a class="text-link" href="<c:url value='/reports/${row.id}'/>">${ui['View report →']}</a></div>
- </article></c:forEach>
+ <c:if test="${empty reports}"><div class="empty"><cp:icon name="clipboard-list"/><h3>${ui['No reports in this view.']}</h3><p>${ui['New reports and updates will appear here.']}</p></div></c:if>
+ <c:forEach items="${reports}" var="row"><a class="report-item" href="${ctx}/reports/${row.id}">
+  <span class="cat-tile"><cp:icon name="cat-${row.categoryCode}"/></span>
+  <div class="report-main">
+   <div class="report-meta"><span class="ref"><c:out value="${row.reference}"/></span><span aria-hidden="true">·</span><span>${ui[row.category]}</span><span aria-hidden="true">·</span><time datetime="${row.createdAt}" data-relative>${row.createdAt}</time></div>
+   <h3 class="report-title"><c:out value="${row.title}"/></h3>
+   <p class="report-sub"><cp:icon name="map-pin"/><span><c:out value="${row.address}"/></span></p>
+  </div>
+  <div class="report-side">
+   <div class="chips"><c:if test="${row.anonymous}"><span class="chip badge-anon"><cp:icon name="venetian-mask"/>${ui['Anonymous']}</span></c:if><c:if test="${row.overdue}"><span class="chip badge-overdue"><cp:icon name="triangle-alert"/>${ui['Overdue']}</span></c:if><span class="chip status status-${row.status}">${ui[row.status]}</span></div>
+   <c:set var="stepIndex" value="${row.step}"/><c:set var="stepStatus" value="${row.status}"/><c:set var="stepCompact" value="${true}"/><%@ include file="/WEB-INF/views/fragments/stepper.jspf" %>
+  </div>
+ </a></c:forEach>
 </div>

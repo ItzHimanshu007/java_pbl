@@ -1,0 +1,7 @@
+<%@ page pageEncoding="UTF-8" %>
+<%-- Single-series horizontal bars. Expects barRows (StatRow list) and barKind ('zone' or 'category'). --%>
+<c:choose><c:when test="${empty barRows}"><p class="muted text-sm">${ui['No reports yet.']}</p></c:when><c:otherwise>
+<ul class="bars">
+ <c:forEach items="${barRows}" var="b"><li class="bar-row"><span class="bar-label"><cp:icon name="${barKind eq 'zone' ? 'map-pin' : 'cat-' += b.code}"/><span title="<c:out value='${ui[b.label]}'/>"><c:out value="${ui[b.label]}"/></span></span><svg class="bar" aria-hidden="true"><title><c:out value="${ui[b.label]}"/>: ${b.value}</title><rect class="bar-track" width="100%" height="12" rx="4"/><rect class="${barKind eq 'zone' ? 'bar-fill bar-fill-pink' : 'bar-fill'}" width="${b.percent}%" height="12" rx="4"/><c:if test="${b.percent ge 3}"><rect class="${barKind eq 'zone' ? 'bar-fill bar-fill-pink' : 'bar-fill'}" width="6" height="12"/></c:if></svg><span class="bar-value">${b.value}</span></li></c:forEach>
+</ul>
+</c:otherwise></c:choose>
