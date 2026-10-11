@@ -4,4 +4,4 @@
 set -e
 cd "$(dirname "$0")/../.."
 ./mvnw -q -DskipTests package
-exec java -jar backend/target/civicpulse.war --spring.profiles.active=demo "$@"
+exec java -jar backend/target/civicpulse.war --spring.profiles.active=demo --server.address=127.0.0.1 "$@"

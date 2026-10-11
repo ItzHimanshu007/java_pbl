@@ -8,12 +8,12 @@ Java 17, Spring Boot, Spring Security, JWT cookies, JSP/JSTL, JDBC, MySQL, Flywa
 
 ```sh
 ./mvnw verify                      # build and run all tests (Windows: .\mvnw.cmd verify)
-./backend/scripts/run-demo.sh      # start the demo (Windows: .\backend\scripts\run-demo.ps1)
+./backend/scripts/run-demo.sh      # build and start the demo (Windows, after verify: .\backend\scripts\run-demo.ps1)
 ```
 
 Open http://localhost:8080. Demo accounts: `citizen@civicpulse.demo`, `officer@civicpulse.demo` (Roads department), `admin@civicpulse.demo`; password for all three: `CivicDemo!2026`. The sign-in page has one-click buttons that fill them in. The demo also creates an officer for every department (`lighting.officer@`, `sanitation.officer@`, `water.officer@`, `drainage.officer@`, `animal.officer@`, `enforcement.officer@`, `parks.officer@`, `health.officer@civicpulse.demo`) and resets on restart. Try public tracking with reference `CP-DEMO-1001`.
 
-Use the normal MySQL profile for persistent data and deployment (`CP_DB_URL`, `CP_DB_USERNAME`, `CP_DB_PASSWORD`, `CP_JWT_SECRET`).
+Use the normal MySQL profile for persistent data and deployment (`CP_DB_URL`, `CP_DB_USERNAME`, `CP_DB_PASSWORD`, `CP_JWT_SECRET`); follow `backend/docs/SETUP.md`. Project documentation: `backend/docs/SRS_DOCUMENT.md`, `backend/docs/PROJECT_REPORT.md`, `backend/docs/ARCHITECTURE.md` and `database/module 5/SCHEMA.md`.
 
 ## Features
 
@@ -38,7 +38,8 @@ A citizen can tick **Report anonymously** when submitting. The report, its photo
 
 ## Fixes in this version
 
-- The `database/module 5` Flyway migrations, the Maven wrapper and the demo run scripts were missing from the repository, so the application could not start. They are restored (V001–V600) with two new migrations: V700 (service catalogue) and V800 (anonymous reports).
+- Two new migrations build on the team's V001–V600 schema: V700 (service catalogue, target times, four new departments; the Drainage department becomes Sewerage and Drainage) and V800 (anonymous reports).
+- `mvnw` is executable again, so `./mvnw` works on Linux and macOS.
 - Language could only be changed from the Account page after signing in; visitors had no way to switch to Hindi.
 - Timeline action names (for example “Work started”) were never translated because the lookup key had spaces instead of underscores.
 - The 43 KB browser dictionary was a hand-copied duplicate of `hi.json`; it is now served from the same files at `/i18n/messages.js`.
