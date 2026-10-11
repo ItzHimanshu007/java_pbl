@@ -1,0 +1,6 @@
+<%@ page pageEncoding="UTF-8" %>
+<form method="get" class="filter-bar">
+ <div><label for="q">${ui['Search title or reference']}</label><input id="q" name="q" maxlength="120" value="<c:out value='${searchQuery}'/>" placeholder="${ui['Search reports']}"></div>
+ <div><label for="status">${ui['Status']}</label><select id="status" name="status"><option value="">${ui['All statuses']}</option><c:forEach items="${statuses}" var="s"><option value="${s}" ${statusFilter eq s ? 'selected' : ''}>${ui[s]}</option></c:forEach></select></div>
+ <button class="button button-primary" type="submit">${ui['Apply filters']}</button>
+</form>

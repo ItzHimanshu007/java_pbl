@@ -1,0 +1,9 @@
+<%@ page pageEncoding="UTF-8" %>
+<section class="metric-grid" aria-label="${ui['Report counts']}">
+ <div class="metric"><span>${ui['Awaiting review']}</span><strong><c:out value="${totals['REPORTED']}"/></strong></div>
+ <div class="metric"><span>${ui['Assigned']}</span><strong><c:out value="${totals['ASSIGNED']}"/></strong></div>
+ <div class="metric"><span>${ui['In progress']}</span><strong><c:out value="${totals['IN_PROGRESS']}"/></strong></div>
+ <div class="metric"><span>${ui['Ready to verify']}</span><strong><c:out value="${totals['RESOLVED']}"/></strong></div>
+ <div class="metric"><span>${ui['Verified closed']}</span><strong><c:out value="${totals['CLOSED']}"/></strong></div>
+ <div class="metric"><span>${ui['Rejected']}</span><strong><c:out value="${totals['REJECTED']}"/></strong></div>
+</section>
