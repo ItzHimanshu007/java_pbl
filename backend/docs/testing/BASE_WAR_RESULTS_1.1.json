@@ -1,0 +1,106 @@
+{
+  "passed": 25,
+  "failures": 0,
+  "checks": [
+    {
+      "check": "Foundation liveness",
+      "result": "PASS"
+    },
+    {
+      "check": "Foundation page/asset /",
+      "result": "PASS"
+    },
+    {
+      "check": "Foundation page/asset /register",
+      "result": "PASS"
+    },
+    {
+      "check": "Foundation page/asset /login",
+      "result": "PASS"
+    },
+    {
+      "check": "Foundation page/asset /assets/css/refinements.css",
+      "result": "PASS"
+    },
+    {
+      "check": "Foundation page/asset /assets/css/maps.css",
+      "result": "PASS"
+    },
+    {
+      "check": "Foundation page/asset /assets/js/maps.js",
+      "result": "PASS"
+    },
+    {
+      "check": "Foundation page/asset /assets/js/photos.js",
+      "result": "PASS"
+    },
+    {
+      "check": "Foundation page/asset /assets/js/translations.js",
+      "result": "PASS"
+    },
+    {
+      "check": "Foundation page/asset /assets/vendor/leaflet/leaflet.js",
+      "result": "PASS"
+    },
+    {
+      "check": "citizen foundation workspace",
+      "result": "PASS"
+    },
+    {
+      "check": "citizen foundation expanded account",
+      "result": "PASS"
+    },
+    {
+      "check": "citizen foundation preferences work",
+      "result": "PASS"
+    },
+    {
+      "check": "citizen foundation location query validation",
+      "result": "PASS"
+    },
+    {
+      "check": "citizen foundation logout",
+      "result": "PASS"
+    },
+    {
+      "check": "officer foundation workspace",
+      "result": "PASS"
+    },
+    {
+      "check": "officer foundation expanded account",
+      "result": "PASS"
+    },
+    {
+      "check": "officer foundation preferences work",
+      "result": "PASS"
+    },
+    {
+      "check": "officer foundation location query validation",
+      "result": "PASS"
+    },
+    {
+      "check": "officer foundation logout",
+      "result": "PASS"
+    },
+    {
+      "check": "admin foundation workspace",
+      "result": "PASS"
+    },
+    {
+      "check": "admin foundation expanded account",
+      "result": "PASS"
+    },
+    {
+      "check": "admin foundation preferences work",
+      "result": "PASS"
+    },
+    {
+      "check": "admin foundation location query validation",
+      "result": "PASS"
+    },
+    {
+      "check": "admin foundation logout",
+      "result": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,283 @@
+{
+  "passed": 69,
+  "failures": 0,
+  "checks": [
+    {
+      "check": "WAR liveness",
+      "result": "PASS"
+    },
+    {
+      "check": "JSP renders /",
+      "result": "PASS"
+    },
+    {
+      "check": "JSP renders /login",
+      "result": "PASS"
+    },
+    {
+      "check": "JSP renders /register",
+      "result": "PASS"
+    },
+    {
+      "check": "Anonymous protected route redirects",
+      "result": "PASS"
+    },
+    {
+      "check": "citizen dashboard JSP",
+      "result": "PASS"
+    },
+    {
+      "check": "admin dashboard JSP",
+      "result": "PASS"
+    },
+    {
+      "check": "officer dashboard JSP",
+      "result": "PASS"
+    },
+    {
+      "check": "Report fragments render UTF-8 punctuation",
+      "result": "PASS"
+    },
+    {
+      "check": "Citizen JSP /citizen/reports",
+      "result": "PASS"
+    },
+    {
+      "check": "Citizen JSP /citizen/reports/new",
+      "result": "PASS"
+    },
+    {
+      "check": "Citizen JSP /community",
+      "result": "PASS"
+    },
+    {
+      "check": "Citizen JSP /insights",
+      "result": "PASS"
+    },
+    {
+      "check": "Citizen JSP /reports/10",
+      "result": "PASS"
+    },
+    {
+      "check": "Admin JSP /admin/reports",
+      "result": "PASS"
+    },
+    {
+      "check": "Admin JSP /admin/officers",
+      "result": "PASS"
+    },
+    {
+      "check": "Admin JSP /community",
+      "result": "PASS"
+    },
+    {
+      "check": "Admin JSP /insights",
+      "result": "PASS"
+    },
+    {
+      "check": "Admin JSP /reports/10",
+      "result": "PASS"
+    },
+    {
+      "check": "Officer JSP /officer/reports",
+      "result": "PASS"
+    },
+    {
+      "check": "Officer JSP /community",
+      "result": "PASS"
+    },
+    {
+      "check": "Officer JSP /insights",
+      "result": "PASS"
+    },
+    {
+      "check": "Officer JSP /reports/11",
+      "result": "PASS"
+    },
+    {
+      "check": "Cross-role admin route rejected",
+      "result": "PASS"
+    },
+    {
+      "check": "Unassigned officer private report rejected",
+      "result": "PASS"
+    },
+    {
+      "check": "Merged resource /assets/css/reporting.css",
+      "result": "PASS"
+    },
+    {
+      "check": "Merged resource /assets/css/maps.css",
+      "result": "PASS"
+    },
+    {
+      "check": "Merged resource /assets/js/maps.js",
+      "result": "PASS"
+    },
+    {
+      "check": "Merged resource /assets/js/resolution.js",
+      "result": "PASS"
+    },
+    {
+      "check": "Merged resource /assets/vendor/leaflet/leaflet.js",
+      "result": "PASS"
+    },
+    {
+      "check": "Merged resource /assets/vendor/leaflet/leaflet.css",
+      "result": "PASS"
+    },
+    {
+      "check": "Nearby possible matches and safe DTO",
+      "result": "PASS"
+    },
+    {
+      "check": "Filtered list compiles",
+      "result": "PASS"
+    },
+    {
+      "check": "Report and original photo create transaction",
+      "result": "PASS"
+    },
+    {
+      "check": "Private canonical evidence and no-store",
+      "result": "PASS"
+    },
+    {
+      "check": "Unassigned officer image forbidden",
+      "result": "PASS"
+    },
+    {
+      "check": "Editing blocked immediately after submission",
+      "result": "PASS"
+    },
+    {
+      "check": "GET edit blocked",
+      "result": "PASS"
+    },
+    {
+      "check": "Missing CSRF denied",
+      "result": "PASS"
+    },
+    {
+      "check": "Admin provisions officer JSP",
+      "result": "PASS"
+    },
+    {
+      "check": "Admin assignment and detail JSP",
+      "result": "PASS"
+    },
+    {
+      "check": "Edit after assignment conflicts",
+      "result": "PASS"
+    },
+    {
+      "check": "Provisioned officer login",
+      "result": "PASS"
+    },
+    {
+      "check": "Officer starts work",
+      "result": "PASS"
+    },
+    {
+      "check": "Progress timeline update",
+      "result": "PASS"
+    },
+    {
+      "check": "Repair upload and before-after JSP",
+      "result": "PASS"
+    },
+    {
+      "check": "Citizen reopens with history retained",
+      "result": "PASS"
+    },
+    {
+      "check": "Second repair evidence",
+      "result": "PASS"
+    },
+    {
+      "check": "Citizen closes repaired issue",
+      "result": "PASS"
+    },
+    {
+      "check": "Stale confirm conflicts",
+      "result": "PASS"
+    },
+    {
+      "check": "New citizen registration",
+      "result": "PASS"
+    },
+    {
+      "check": "New citizen login",
+      "result": "PASS"
+    },
+    {
+      "check": "Other citizen cannot read private detail",
+      "result": "PASS"
+    },
+    {
+      "check": "Other citizen cannot read private evidence",
+      "result": "PASS"
+    },
+    {
+      "check": "Community support succeeds",
+      "result": "PASS"
+    },
+    {
+      "check": "Repeated support retains supported state",
+      "result": "PASS"
+    },
+    {
+      "check": "Citizen CSV contains scoped own report",
+      "result": "PASS"
+    },
+    {
+      "check": "Other citizen CSV excludes private reports",
+      "result": "PASS"
+    },
+    {
+      "check": "Officer CSV includes assigned report",
+      "result": "PASS"
+    },
+    {
+      "check": "Scoped statistics JSP after close",
+      "result": "PASS"
+    },
+    {
+      "check": "Reasoned admin rejection",
+      "result": "PASS"
+    },
+    {
+      "check": "Owner delete request without CSRF is rejected",
+      "result": "PASS"
+    },
+    {
+      "check": "Owner deletion redirects to My Reports",
+      "result": "PASS"
+    },
+    {
+      "check": "Deleted detail and public summary unavailable",
+      "result": "PASS"
+    },
+    {
+      "check": "Deleted evidence unavailable",
+      "result": "PASS"
+    },
+    {
+      "check": "Deleted report can be restored",
+      "result": "PASS"
+    },
+    {
+      "check": "citizen logout and protected redirect",
+      "result": "PASS"
+    },
+    {
+      "check": "officer logout and protected redirect",
+      "result": "PASS"
+    },
+    {
+      "check": "admin logout and protected redirect",
+      "result": "PASS"
+    }
+  ],
+  "testReportId": 14
+}
