@@ -1,0 +1,134 @@
+{
+  "passed": 32,
+  "failures": 0,
+  "checks": [
+    {
+      "check": "citizen login",
+      "result": "PASS"
+    },
+    {
+      "check": "citizen persists Hindi/dark profile",
+      "result": "PASS"
+    },
+    {
+      "check": "citizen Hindi JSP /feed",
+      "result": "PASS"
+    },
+    {
+      "check": "citizen Hindi JSP /citizen/reports",
+      "result": "PASS"
+    },
+    {
+      "check": "citizen Hindi JSP /citizen/reports/new",
+      "result": "PASS"
+    },
+    {
+      "check": "citizen Hindi JSP /community",
+      "result": "PASS"
+    },
+    {
+      "check": "citizen Hindi JSP /insights",
+      "result": "PASS"
+    },
+    {
+      "check": "citizen Hindi JSP /community/5",
+      "result": "PASS"
+    },
+    {
+      "check": "citizen light/English persisted",
+      "result": "PASS"
+    },
+    {
+      "check": "citizen signed-out preference cookies",
+      "result": "PASS"
+    },
+    {
+      "check": "admin login",
+      "result": "PASS"
+    },
+    {
+      "check": "admin persists Hindi/dark profile",
+      "result": "PASS"
+    },
+    {
+      "check": "admin Hindi JSP /admin/dashboard",
+      "result": "PASS"
+    },
+    {
+      "check": "admin Hindi JSP /admin/reports",
+      "result": "PASS"
+    },
+    {
+      "check": "admin Hindi JSP /admin/officers",
+      "result": "PASS"
+    },
+    {
+      "check": "admin Hindi JSP /community",
+      "result": "PASS"
+    },
+    {
+      "check": "admin Hindi JSP /insights",
+      "result": "PASS"
+    },
+    {
+      "check": "admin Hindi JSP /community/5",
+      "result": "PASS"
+    },
+    {
+      "check": "admin light/English persisted",
+      "result": "PASS"
+    },
+    {
+      "check": "admin signed-out preference cookies",
+      "result": "PASS"
+    },
+    {
+      "check": "officer login",
+      "result": "PASS"
+    },
+    {
+      "check": "officer persists Hindi/dark profile",
+      "result": "PASS"
+    },
+    {
+      "check": "officer Hindi JSP /officer/dashboard",
+      "result": "PASS"
+    },
+    {
+      "check": "officer Hindi JSP /officer/reports",
+      "result": "PASS"
+    },
+    {
+      "check": "officer Hindi JSP /community",
+      "result": "PASS"
+    },
+    {
+      "check": "officer Hindi JSP /insights",
+      "result": "PASS"
+    },
+    {
+      "check": "officer Hindi JSP /community/5",
+      "result": "PASS"
+    },
+    {
+      "check": "officer light/English persisted",
+      "result": "PASS"
+    },
+    {
+      "check": "officer signed-out preference cookies",
+      "result": "PASS"
+    },
+    {
+      "check": "Live Photon search returns real Jaipur addresses",
+      "result": "PASS"
+    },
+    {
+      "check": "Address endpoint rejects short query",
+      "result": "PASS"
+    },
+    {
+      "check": "Area endpoint rejects invalid coordinate",
+      "result": "PASS"
+    }
+  ]
+}

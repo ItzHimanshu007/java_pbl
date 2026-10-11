@@ -1,0 +1,62 @@
+{
+  "release": "1.0.0",
+  "layout": "frontend-2-backend-2-database-1",
+  "date": "2026-10-10",
+  "h2FinalAssembled": [
+    {
+      "suite": "com.civicpulse.AdministrationIntegrationTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "com.civicpulse.FoundationIntegrationTest",
+      "tests": 19,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "com.civicpulse.InsightsIntegrationTest",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "com.civicpulse.ReportingIntegrationTest",
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "com.civicpulse.ResolutionIntegrationTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "mysqlFullSuite": {
+    "database": "isolated MySQL 8.0.46 test instance",
+    "tests": 52,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "evidence": "Observed successful Maven test output at 22:53:52 Asia/Calcutta; database upgraded from V001 through V400."
+  },
+  "baseSuite": {
+    "tests": 19,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "afterBackend3": {
+    "tests": 38,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

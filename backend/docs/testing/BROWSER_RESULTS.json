@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-10",
+  "browser": "Codex in-app browser, viewport simulation",
+  "checks": [
+    {
+      "page": "/community",
+      "viewport": "1366x900",
+      "clientWidth": 1351,
+      "scrollWidth": 1351,
+      "loadedTiles": 18,
+      "markers": 5,
+      "consoleErrors": 0
+    },
+    {
+      "page": "/citizen/reports/new",
+      "viewport": "360x800",
+      "clientWidth": 345,
+      "scrollWidth": 345,
+      "nearbyResults": "Roads at 26.9124,75.7873 showed reports at 0m and 175m",
+      "navigationMenu": "Opened and closed"
+    },
+    {
+      "page": "/reports/3",
+      "role": "citizen",
+      "viewport": "360x800",
+      "clientWidth": 345,
+      "scrollWidth": 345,
+      "slider": "Keyboard End changed value 50 to 100; before-layer clip changed to inset(0px 0% 0px 0px)"
+    },
+    {
+      "page": "/admin/dashboard",
+      "viewport": "360x800",
+      "clientWidth": 345,
+      "scrollWidth": 345
+    },
+    {
+      "page": "/admin/officers",
+      "viewport": "360x800",
+      "clientWidth": 345,
+      "scrollWidth": 345
+    },
+    {
+      "page": "/officer/dashboard",
+      "viewport": "360x800",
+      "clientWidth": 345,
+      "scrollWidth": 345
+    },
+    {
+      "page": "/reports/2",
+      "role": "officer",
+      "viewport": "360x800",
+      "clientWidth": 345,
+      "scrollWidth": 345
+    },
+    {
+      "check": "Citizen, administrator and officer login routing and rendered JSPs; citizen/admin logout; UTF-8 report-list punctuation",
+      "result": "PASS"
+    }
+  ],
+  "limitations": [
+    "Viewport simulation, not physical-phone testing",
+    "Device location permission prompt was not exercised",
+    "No public deployment, load benchmark or external Tomcat test"
+  ]
+}

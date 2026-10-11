@@ -1,0 +1,82 @@
+[
+  {
+    "check": "Servlet health endpoint",
+    "result": "PASS"
+  },
+  {
+    "check": "Rendered /",
+    "result": "PASS"
+  },
+  {
+    "check": "Rendered /register",
+    "result": "PASS"
+  },
+  {
+    "check": "Rendered /login",
+    "result": "PASS"
+  },
+  {
+    "check": "Citizen registration and confirmation",
+    "result": "PASS"
+  },
+  {
+    "check": "Registered citizen signs in",
+    "result": "PASS"
+  },
+  {
+    "check": "Registered citizen signs out",
+    "result": "PASS"
+  },
+  {
+    "check": "citizen role workspace",
+    "result": "PASS"
+  },
+  {
+    "check": "Citizen blocked from administrator route",
+    "result": "PASS"
+  },
+  {
+    "check": "CSRF hidden field matches cookie",
+    "result": "PASS"
+  },
+  {
+    "check": "Profile saves after loading an asset",
+    "result": "PASS"
+  },
+  {
+    "check": "Missing CSRF rejected by packaged app",
+    "result": "PASS"
+  },
+  {
+    "check": "citizen logout",
+    "result": "PASS"
+  },
+  {
+    "check": "citizen protected page after logout",
+    "result": "PASS"
+  },
+  {
+    "check": "officer role workspace",
+    "result": "PASS"
+  },
+  {
+    "check": "officer logout",
+    "result": "PASS"
+  },
+  {
+    "check": "officer protected page after logout",
+    "result": "PASS"
+  },
+  {
+    "check": "admin role workspace",
+    "result": "PASS"
+  },
+  {
+    "check": "admin logout",
+    "result": "PASS"
+  },
+  {
+    "check": "admin protected page after logout",
+    "result": "PASS"
+  }
+]

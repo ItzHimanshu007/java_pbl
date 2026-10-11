@@ -1,0 +1,161 @@
+{
+  "project": "CivicPulse",
+  "version": "1.1.0",
+  "layout": "frontend-2-backend-2-database-1",
+  "moduleId": "module 5",
+  "repositoryModulePath": "database/module 5",
+  "member": 1,
+  "status": "foundation-installed",
+  "files": [
+    {
+      "path": "database/module 5/COMMIT_PLAN.md",
+      "sha256": "2e4c6af4cf3aa0c9f6adb331ece6e2bbf7f27b273a7930ab2a2b488a1cf1a474",
+      "bytes": 824
+    },
+    {
+      "path": "database/module 5/CONTRIBUTION_LOG.md",
+      "sha256": "8f690c7c4fea805ec45b28f484ba68afb926bd9a50dfcffdcd2f78656a2c02e7",
+      "bytes": 364
+    },
+    {
+      "path": "database/module 5/MEMBER_ROLE.md",
+      "sha256": "fcdbfccb77af0be75b909ad8695fb4f08b95347b6758dbffa870b96437eec013",
+      "bytes": 1690
+    },
+    {
+      "path": "database/module 5/MODULE_EXPLANATION.md",
+      "sha256": "75d6dbc8adae187073b77e08b74fa9d4e0581159844f8c29b533b814bba0dc92",
+      "bytes": 2314
+    },
+    {
+      "path": "database/module 5/README.md",
+      "sha256": "902727caab0de6b6c147e2764c0f3b16cd03d2a0d7f8ce0a80ab962143385459",
+      "bytes": 630
+    },
+    {
+      "path": "database/module 5/RELEASE_1.1_CONTEXT.md",
+      "sha256": "a3ebd82d0ceda26ea860a4c5f19f2e820632f81b4db5cfafd21f058ece18afe2",
+      "bytes": 2059
+    },
+    {
+      "path": "database/module 5/reports/daily/README.md",
+      "sha256": "c406d1fd54fd44930d6d170d734e5dcab89a35f97a31312ede1c693b771cceb6",
+      "bytes": 162
+    },
+    {
+      "path": "database/module 5/reports/DAILY_REPORT_TEMPLATE.md",
+      "sha256": "a15b2e9cf203dca769ebd17e0c1d5950f365cf5d72c93b07fd1f7cf430160d93",
+      "bytes": 442
+    },
+    {
+      "path": "database/module 5/reports/weekly/week-01.md",
+      "sha256": "b69b218b371146fbac41542037e479c6c1dfd290878a7010769eef673f11ec93",
+      "bytes": 783
+    },
+    {
+      "path": "database/module 5/reports/weekly/week-02.md",
+      "sha256": "31231a05674199310f133df1e41da0a69181f619e0240efd334189761e4c80ef",
+      "bytes": 775
+    },
+    {
+      "path": "database/module 5/reports/weekly/week-03.md",
+      "sha256": "6910da6cbd52e8d1144ba2d6cdef39e9d3a31202f16aff67f6e070b3340ea554",
+      "bytes": 788
+    },
+    {
+      "path": "database/module 5/reports/weekly/week-04.md",
+      "sha256": "6306f0e45fc3630f5af8b51867e11956b673a0218fb51e1b1fc3dc3d1fe681c4",
+      "bytes": 768
+    },
+    {
+      "path": "database/module 5/reports/weekly/week-05.md",
+      "sha256": "0e06fce4280f05cba27cc20ab11b87dda4c179e035180520a23a1cf1b92cb00d",
+      "bytes": 768
+    },
+    {
+      "path": "database/module 5/reports/weekly/week-06.md",
+      "sha256": "9a9bd11219ea3d206ce3796aa43d03886cbeaa1e04f22e50b2fd6e3ff4dbe30e",
+      "bytes": 774
+    },
+    {
+      "path": "database/module 5/reports/weekly/week-07.md",
+      "sha256": "2827652e08b53b7e5142c037719736cd9b9c8cd1c48bf17c1941c6af24073f86",
+      "bytes": 764
+    },
+    {
+      "path": "database/module 5/reports/weekly/week-08.md",
+      "sha256": "43aa9df86df07d329672ff29ee9c6c39c9587446e6942b0d36e4e4aa3ba0e698",
+      "bytes": 782
+    },
+    {
+      "path": "database/module 5/reports/weekly/week-09.md",
+      "sha256": "81cddb70c204dffa151a784740e05c585ca01ef64e0b5f80ce083aef9b5c0480",
+      "bytes": 788
+    },
+    {
+      "path": "database/module 5/reports/weekly/week-10.md",
+      "sha256": "10e5a948173a5a2eddc56d8abcebe83cab74c125f561c393bd5ecaa87267c882",
+      "bytes": 784
+    },
+    {
+      "path": "database/module 5/reports/weekly/week-11.md",
+      "sha256": "5dfb29030ef78a694582c87fe329b980b3337d08cad2df29dae75972b8f5be21",
+      "bytes": 778
+    },
+    {
+      "path": "database/module 5/reports/weekly/week-12.md",
+      "sha256": "45fe0831c3aa08bfc371180572a7950b448a0411a724c2f7e0c7ca53383cf279",
+      "bytes": 795
+    },
+    {
+      "path": "database/module 5/SCHEMA.md",
+      "sha256": "221c692930e9b96cb3205f298d2b3ce05f81a5956d2923778e54d14a18a99571",
+      "bytes": 2348
+    },
+    {
+      "path": "database/module 5/SETUP_FOR_AGENT.md",
+      "sha256": "27d12dbbe65eeecf1f3cbf1a4bf0fb0d1c93b285c463b4ad26258a3c8035083f",
+      "bytes": 2624
+    },
+    {
+      "path": "database/module 5/src/main/resources/db/migration/V001__foundation.sql",
+      "sha256": "75e1c80fe484b531362db483ae9cc9bb545309153bb8c1a1ec9504229c237eb4",
+      "bytes": 1200
+    },
+    {
+      "path": "database/module 5/src/main/resources/db/migration/V100__reporting.sql",
+      "sha256": "9aab5d8f111d696f29d77e68091159ad914d6c6c7c097fe4ebb613b6a78a3590",
+      "bytes": 3442
+    },
+    {
+      "path": "database/module 5/src/main/resources/db/migration/V200__administration.sql",
+      "sha256": "68bf6831e461f1eb814e1c91ffe8391b9eb5ff6b794468b001c879d7b283e104",
+      "bytes": 396
+    },
+    {
+      "path": "database/module 5/src/main/resources/db/migration/V300__resolution.sql",
+      "sha256": "a41858e2f1ff56799bc35da32f0a176a757e68cd8d35e807fa76c5b94f7dd427",
+      "bytes": 83
+    },
+    {
+      "path": "database/module 5/src/main/resources/db/migration/V400__community_support.sql",
+      "sha256": "efd75b6457241fddc0f04035e6cef2697fed70b457ed6bba79f3cf48d218669e",
+      "bytes": 426
+    },
+    {
+      "path": "database/module 5/src/main/resources/db/migration/V500__account_preferences.sql",
+      "sha256": "8b5d8a84f5af464452a2869df4cc41425c832532de3fd9ca9598917162e682f9",
+      "bytes": 823
+    },
+    {
+      "path": "database/module 5/src/main/resources/db/migration/V600__report_deletion_and_issue_links.sql",
+      "sha256": "7c525eeefd7c876c2442b44feaddbf7c3882cccd7113a8d8880a92a8dcafe509",
+      "bytes": 388
+    },
+    {
+      "path": "database/module 5/TWELVE_WEEK_PLAN.md",
+      "sha256": "634620bc0241790ff4d154988ba46de039384533931b450d3a1ac6d26bc9a91c",
+      "bytes": 1828
+    }
+  ]
+}

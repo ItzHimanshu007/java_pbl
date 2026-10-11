@@ -1,0 +1,12 @@
+{
+  "version": "1.1.0",
+  "packageVariant": "complete",
+  "modulesIncludedAtPackaging": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "installationState": "For later changes, inspect the per-module INSTALLED_MODULE.json markers."
+}
