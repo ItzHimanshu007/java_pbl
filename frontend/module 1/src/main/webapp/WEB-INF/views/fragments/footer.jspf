@@ -1,0 +1,3 @@
+<%@ page pageEncoding="UTF-8" %>
+<footer class="site-footer"><div class="container footer-inner"><span><strong>CivicPulse</strong> ${ui['· Report. Track. Resolve.']}</span><span>${ui['Small reports. Better neighbourhoods.']}</span></div></footer>
+</body></html>

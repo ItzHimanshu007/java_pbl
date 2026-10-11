@@ -1,0 +1,17 @@
+<%@ page pageEncoding="UTF-8" %>
+<header class="site-header"><div class="container header-inner">
+  <a class="brand" href="<c:url value='/'/>"><img src="<c:url value='/assets/brand.svg'/>" width="34" height="34" alt="">Civic<span>Pulse</span></a>
+  <c:if test="${signedIn}"><button type="button" class="button button-small button-outline menu-toggle" aria-expanded="false" aria-controls="main-nav">${ui['Menu']}</button></c:if>
+  <nav id="main-nav" aria-label="${ui['Main navigation']}" class="header-nav ${signedIn ? 'signed-nav' : ''}">
+    <c:choose><c:when test="${signedIn}">
+      <a class="nav-link" href="<c:url value='${dashboardPath}'/>">${isCitizen ? ui['Feed'] : ui['Dashboard']}</a>
+      <c:forEach items="${navigationLinks}" var="item"><a class="nav-link" href="<c:url value='${item.path}'/>"><c:out value="${ui[item.label]}"/></a></c:forEach>
+      <a class="nav-link" href="<c:url value='/account'/>">${ui['Account']}</a>
+      <form method="post" action="<c:url value='/logout'/>"><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"><button class="button button-small button-outline" type="submit">${ui['Sign out']}</button></form>
+    </c:when><c:otherwise>
+      <a class="nav-link how-link" href="<c:url value='/'/>#how-it-works">${ui['How it works']}</a>
+      <a class="button button-small button-outline" href="<c:url value='/login'/>">${ui['Sign in']}</a>
+      <a class="button button-small button-primary" href="<c:url value='/register'/>">${ui['Join CivicPulse']} <span aria-hidden="true">&#8599;</span></a>
+    </c:otherwise></c:choose>
+  </nav>
+</div></header>

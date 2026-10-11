@@ -1,0 +1,25 @@
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<!DOCTYPE html>
+<html lang="${language}" data-theme="${theme}">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#164d3c">
+  <title>${ui[pageTitle]} ${ui['· CivicPulse']}</title>
+  <link rel="icon" href="<c:url value='/assets/brand.svg'/>" type="image/svg+xml">
+  <link rel="stylesheet" href="<c:url value='/assets/vendor/bootstrap.min.css'/>">
+  <link rel="stylesheet" href="<c:url value='/assets/css/app.css'/>">
+  <script src="<c:url value='/assets/js/translations.js'/>" defer></script>
+  <script src="<c:url value='/assets/js/app.js'/>" defer></script>
+  <script src="<c:url value='/assets/js/photos.js'/>" defer></script>
+  <link rel="stylesheet" href="<c:url value='/assets/vendor/leaflet/leaflet.css'/>">
+  <link rel="stylesheet" href="<c:url value='/assets/css/reporting.css'/>">
+  <link rel="stylesheet" href="<c:url value='/assets/css/maps.css'/>">
+  <script src="<c:url value='/assets/vendor/leaflet/leaflet.js'/>" defer></script>
+  <script src="<c:url value='/assets/js/maps.js'/>" defer></script>
+  <c:forEach items="${moduleStyles}" var="asset"><link rel="stylesheet" href="<c:url value='${asset}'/>"></c:forEach>
+  <c:forEach items="${moduleScripts}" var="asset"><script src="<c:url value='${asset}'/>" defer></script></c:forEach>
+  <link rel="stylesheet" href="<c:url value='/assets/css/refinements.css'/>">
+</head><body data-context="${pageContext.request.contextPath}">
+<a class="skip-link" href="#main">${ui['Skip to content']}</a>
