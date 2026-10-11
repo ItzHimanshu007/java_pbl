@@ -54,6 +54,10 @@ public class UserDao {
     return findById(id.longValue()).orElseThrow();
   }
 
+  public void disable(long id) {
+    jdbc.update("UPDATE users SET enabled = FALSE WHERE id = ?", id);
+  }
+
   public void updateDisplayName(long id, String name) {
     jdbc.update("UPDATE users SET display_name = ? WHERE id = ?", name, id);
   }

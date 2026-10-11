@@ -14,11 +14,14 @@ public class SubmissionService {
   private final ComplaintDao dao;
   private final ImageStore images;
   private final ComplaintAccess access;
+  private final ReporterIdentity identity;
 
-  public SubmissionService(ComplaintDao dao, ImageStore images, ComplaintAccess access) {
+  public SubmissionService(
+      ComplaintDao dao, ImageStore images, ComplaintAccess access, ReporterIdentity identity) {
     this.dao = dao;
     this.images = images;
     this.access = access;
+    this.identity = identity;
   }
 
   @Transactional
@@ -48,11 +51,19 @@ public class SubmissionService {
             "Choose an active report of the same issue within 150 metres.");
       root = dao.issueRoot(related.id());
     }
-    long id = dao.create(f, user.id(), reference);
+    // An anonymous report is filed under the anonymous system account; the citizen's account
+    // is kept only as a keyed hash so they can still track, verify or delete it.
+    long reporter = f.isAnonymous() ? identity.anonymousAccount() : user.id();
+    long id = dao.create(f, reporter, reference, f.isAnonymous(), identity.hash(user.id()));
     if (root != null) dao.link(id, root);
-    images.add(id, user.id(), "ORIGINAL", image);
+    images.add(id, reporter, "ORIGINAL", image);
     dao.event(
-        id, user.id(), "REPORTED", null, ComplaintStatus.REPORTED, "Report submitted for review.");
+        id,
+        reporter,
+        "REPORTED",
+        null,
+        ComplaintStatus.REPORTED,
+        f.isAnonymous() ? "Anonymous report submitted for review." : "Report submitted for review.");
     return id;
   }
 
@@ -69,7 +80,7 @@ public class SubmissionService {
     dao.softDelete(id);
     dao.event(
         id,
-        user.id(),
+        access.actor(c, user),
         "DELETED",
         c.status(),
         c.status(),
@@ -81,7 +92,7 @@ public class SubmissionService {
     var c = dao.lockDeleted(id);
     access.owner(c, user);
     dao.restore(id);
-    dao.event(id, user.id(), "RESTORED", c.status(), c.status(), "Report restored by its citizen.");
+    dao.event(id, access.actor(c, user), "RESTORED", c.status(), c.status(), "Report restored by its citizen.");
   }
 
   private void validate(ComplaintForm f) {

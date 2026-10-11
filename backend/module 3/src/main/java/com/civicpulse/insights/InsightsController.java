@@ -1,6 +1,7 @@
 package com.civicpulse.insights;
 
 import com.civicpulse.auth.CurrentUser;
+import com.civicpulse.location.JaipurPlaces;
 import com.civicpulse.shared.*;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
@@ -14,10 +15,30 @@ import org.springframework.web.bind.annotation.*;
 public class InsightsController {
   private final InsightsService service;
   private final com.civicpulse.account.ProfileDao profiles;
+  private final JaipurPlaces places;
 
-  public InsightsController(InsightsService service, com.civicpulse.account.ProfileDao profiles) {
+  public InsightsController(
+      InsightsService service, com.civicpulse.account.ProfileDao profiles, JaipurPlaces places) {
     this.service = service;
     this.profiles = profiles;
+    this.places = places;
+  }
+
+  /** Public 311-style status lookup by reference number; no sign-in or identity needed. */
+  @GetMapping("/track")
+  public String track(@RequestParam(required = false) String ref, Model m) {
+    m.addAttribute("ref", ref == null ? "" : ref.strip());
+    if (ref != null && !ref.isBlank()) {
+      try {
+        var report = service.track(ref);
+        m.addAttribute("report", report);
+        m.addAttribute("zone", places.zoneOf(report.latitude(), report.longitude()));
+        m.addAttribute("updates", service.publicUpdates(report.id()));
+      } catch (FeatureException ex) {
+        m.addAttribute("notFound", true);
+      }
+    }
+    return "track";
   }
 
   @GetMapping({"/community", "/feed"})
@@ -41,12 +62,14 @@ public class InsightsController {
     m.addAttribute("areaRadius", radius);
     m.addAttribute("hasArea", latitude != null);
     m.addAttribute("isCitizen", u.role() == Role.CITIZEN);
+    m.addAttribute("zones", places.zones());
     return "insights/community";
   }
 
   @GetMapping("/community/{id}")
   public String summary(@PathVariable long id, @AuthenticationPrincipal CurrentUser u, Model m) {
-    m.addAttribute("summary", service.summary(id, u));
+    var summary = service.summary(id, u);
+    m.addAttribute("summary", summary);
     m.addAttribute("updates", service.publicUpdates(id));
     return "insights/summary";
   }
@@ -72,6 +95,10 @@ public class InsightsController {
     m.addAttribute("totals", service.totals(u));
     m.addAttribute("categoryTotals", service.categories(u));
     m.addAttribute("averageHours", service.averageHours(u));
+    m.addAttribute("categoryRows", service.categoryRows(u));
+    m.addAttribute("zoneRows", service.zoneRows(u));
+    m.addAttribute("overdueCount", service.overdueCount(u));
+    if (u.role() == Role.ADMIN) m.addAttribute("departmentLoad", service.departmentLoad());
     m.addAttribute(
         "scopeLabel",
         u.role() == Role.ADMIN

@@ -2,6 +2,7 @@ package com.civicpulse.insights;
 
 import com.civicpulse.auth.CurrentUser;
 import com.civicpulse.complaints.*;
+import com.civicpulse.location.JaipurPlaces;
 import com.civicpulse.shared.*;
 import java.time.Duration;
 import java.util.*;
@@ -13,23 +14,40 @@ import org.springframework.transaction.annotation.Transactional;
 public class InsightsService {
   private final JdbcTemplate jdbc;
   private final ComplaintDao dao;
+  private final ComplaintAccess access;
+  private final ReporterIdentity identity;
+  private final JaipurPlaces places;
 
-  public InsightsService(JdbcTemplate jdbc, ComplaintDao dao) {
+  public InsightsService(
+      JdbcTemplate jdbc,
+      ComplaintDao dao,
+      ComplaintAccess access,
+      ReporterIdentity identity,
+      JaipurPlaces places) {
     this.jdbc = jdbc;
     this.dao = dao;
+    this.access = access;
+    this.identity = identity;
+    this.places = places;
   }
 
+  // Each citizen counts once per issue. Every report carries the keyed reporter hash, so named
+  // and anonymous reports by the same citizen are not counted twice.
   private static final String COMMUNITY =
       "SELECT"
-          + " c.id,c.reference,c.title,c.address,c.latitude,c.longitude,c.status,c.reporter_id,c.category_id,COALESCE(c.issue_root_id,c.id)"
-          + " issue_root,k.name category,(SELECT COUNT(DISTINCT d.reporter_id) FROM complaints d"
-          + " WHERE COALESCE(d.issue_root_id,d.id)=COALESCE(c.issue_root_id,c.id) AND d.deleted_at"
-          + " IS NULL AND d.status<>'REJECTED') repeats,(SELECT COUNT(*) FROM complaint_supports s"
+          + " c.id,c.reference,c.title,c.address,c.latitude,c.longitude,c.status,c.reporter_id,"
+          + "c.reporter_hash,c.category_id,c.created_at,COALESCE(c.issue_root_id,c.id) issue_root,"
+          + "k.name category,k.code category_code,(SELECT COUNT(DISTINCT"
+          + " COALESCE(d.reporter_hash,CONCAT('u',d.reporter_id))) FROM complaints d WHERE"
+          + " COALESCE(d.issue_root_id,d.id)=COALESCE(c.issue_root_id,c.id) AND d.deleted_at IS"
+          + " NULL AND d.status<>'REJECTED') repeats,(SELECT COUNT(*) FROM complaint_supports s"
           + " WHERE s.complaint_id=c.id) supports,(SELECT COUNT(*) FROM complaint_supports s WHERE"
           + " s.complaint_id=c.id AND s.citizen_id=?) supported FROM complaints c JOIN categories k"
           + " ON k.id=c.category_id ";
 
-  private RowMapper<CommunityReport> mapper(long user, double lat, double lon, boolean nearby) {
+  private RowMapper<CommunityReport> mapper(
+      CurrentUser user, double lat, double lon, boolean nearby) {
+    String hash = identity.hash(user.id());
     return (r, n) ->
         new CommunityReport(
             r.getLong("id"),
@@ -42,13 +60,17 @@ public class InsightsService {
             r.getString("status"),
             r.getLong("supports"),
             r.getLong("supported") > 0,
-            r.getLong("reporter_id") == user,
+            user.role() == Role.CITIZEN
+                && (r.getLong("reporter_id") == user.id() || hash.equals(r.getString("reporter_hash"))),
             nearby ? distance(lat, lon, r.getDouble("latitude"), r.getDouble("longitude")) : 0,
             r.getLong("category_id"),
             r.getLong("issue_root"),
             r.getLong("repeats"),
             priority(r.getString("status"), r.getLong("repeats")),
-            progress(r.getString("status")));
+            progress(r.getString("status")),
+            r.getString("category_code"),
+            places.zoneOf(r.getDouble("latitude"), r.getDouble("longitude")),
+            r.getTimestamp("created_at").toInstant().toString());
   }
 
   public List<CommunityReport> community(CurrentUser user) {
@@ -57,7 +79,7 @@ public class InsightsService {
             COMMUNITY
                 + "WHERE c.deleted_at IS NULL AND c.status<>'REJECTED' ORDER BY c.created_at"
                 + " DESC,c.id DESC LIMIT 1000",
-            mapper(user.id(), 0, 0, false),
+            mapper(user, 0, 0, false),
             user.id()));
   }
 
@@ -93,7 +115,7 @@ public class InsightsService {
         args.add(max);
       }
     }
-    return jdbc.query(sql, mapper(user.id(), lat, lon, true), args.toArray()).stream()
+    return jdbc.query(sql, mapper(user, lat, lon, true), args.toArray()).stream()
         .filter(c -> c.distanceMeters() <= 250)
         .sorted(
             Comparator.comparingDouble(CommunityReport::distanceMeters)
@@ -116,7 +138,7 @@ public class InsightsService {
   public void support(long id, CurrentUser user) {
     if (user.role() != Role.CITIZEN) throw FeatureException.forbidden();
     var c = dao.lock(id);
-    if (c.reporterId() == user.id())
+    if (access.isOwner(c, user))
       throw FeatureException.conflict("You are already the reporter of this issue.");
     if (c.status() == ComplaintStatus.CLOSED || c.status() == ComplaintStatus.REJECTED)
       throw FeatureException.conflict("Only active issues can receive support.");
@@ -181,7 +203,7 @@ public class InsightsService {
     var rows =
         jdbc.query(
             COMMUNITY + "WHERE c.id=? AND c.deleted_at IS NULL AND c.status<>'REJECTED'",
-            mapper(u.id(), 0, 0, false),
+            mapper(u, 0, 0, false),
             u.id(),
             id);
     if (rows.isEmpty()) throw FeatureException.missing();
@@ -203,6 +225,16 @@ public class InsightsService {
         id);
   }
 
+  /** Public progress for a reference number. Identities and notes are never included. */
+  public Complaint track(String reference) {
+    if (reference == null
+        || reference.isBlank()
+        || reference.length() > 40
+        || !reference.strip().matches("[A-Za-z0-9-]+"))
+      throw FeatureException.invalid("Enter a valid complaint reference number.");
+    return dao.findByReference(reference);
+  }
+
   public String scope(CurrentUser user) {
     return user.role() == Role.ADMIN ? "all" : user.role() == Role.OFFICER ? "assigned" : "mine";
   }
@@ -211,11 +243,19 @@ public class InsightsService {
     return dao.totals(scope(user), user.id());
   }
 
+  /** SQL condition and arguments limiting complaints {@code c} to what a role may count. */
+  private String scopeCondition(CurrentUser u, List<Object> args) {
+    if (u.role() == Role.ADMIN) return "";
+    if (u.role() == Role.OFFICER) {
+      args.add(u.id());
+      return " AND c.assigned_officer_id=?";
+    }
+    return " AND " + dao.ownerCondition("c", u.id(), args);
+  }
+
   public Map<String, Long> categories(CurrentUser u) {
-    String where =
-        u.role() == Role.ADMIN
-            ? ""
-            : u.role() == Role.CITIZEN ? " AND c.reporter_id=?" : " AND c.assigned_officer_id=?";
+    var args = new ArrayList<Object>();
+    String where = scopeCondition(u, args);
     var result = new LinkedHashMap<String, Long>();
     jdbc.query(
         "SELECT k.name,COUNT(c.id) amount FROM categories k LEFT JOIN complaints c ON"
@@ -223,18 +263,123 @@ public class InsightsService {
             + where
             + " GROUP BY k.id,k.name ORDER BY k.id",
         (RowCallbackHandler) r -> result.put(r.getString("name"), r.getLong("amount")),
-        u.role() == Role.ADMIN ? new Object[0] : new Object[] {u.id()});
+        args.toArray());
     return result;
   }
 
+  /** Categories with reports, largest first, scaled for a bar chart. */
+  public List<StatRow> categoryRows(CurrentUser u) {
+    var args = new ArrayList<Object>();
+    String where = scopeCondition(u, args);
+    var rows = new ArrayList<StatRow>();
+    jdbc.query(
+        "SELECT k.name,k.code,COUNT(c.id) amount FROM categories k JOIN complaints c ON"
+            + " c.category_id=k.id AND c.deleted_at IS NULL"
+            + where
+            + " GROUP BY k.id,k.name,k.code ORDER BY amount DESC,k.id",
+        (RowCallbackHandler)
+            r -> rows.add(new StatRow(r.getString("name"), r.getString("code"), r.getLong("amount"), 0)),
+        args.toArray());
+    return scaled(rows);
+  }
+
+  /** Reports per Jaipur service zone, largest first. */
+  public List<StatRow> zoneRows(CurrentUser u) {
+    var args = new ArrayList<Object>();
+    String where = scopeCondition(u, args);
+    var counts = new LinkedHashMap<String, Long>();
+    jdbc.query(
+        "SELECT c.latitude,c.longitude FROM complaints c WHERE c.deleted_at IS NULL" + where,
+        (RowCallbackHandler)
+            r -> counts.merge(places.zoneOf(r.getDouble(1), r.getDouble(2)), 1L, Long::sum),
+        args.toArray());
+    var rows = new ArrayList<StatRow>();
+    counts.entrySet().stream()
+        .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
+        .forEach(e -> rows.add(new StatRow(e.getKey(), "zone", e.getValue(), 0)));
+    return scaled(rows);
+  }
+
+  private static List<StatRow> scaled(List<StatRow> rows) {
+    long max = rows.stream().mapToLong(StatRow::value).max().orElse(0);
+    return rows.stream()
+        .map(
+            r ->
+                new StatRow(
+                    r.label(),
+                    r.code(),
+                    r.value(),
+                    max == 0 ? 0 : (int) Math.max(2, Math.round(r.value() * 100.0 / max))))
+        .toList();
+  }
+
+  /** Open work per department with overdue counts, for the administrator. */
+  public List<DepartmentLoad> departmentLoad() {
+    var open = new LinkedHashMap<String, long[]>();
+    jdbc.query(
+        "SELECT name FROM departments WHERE enabled=TRUE ORDER BY id",
+        (RowCallbackHandler) r -> open.put(r.getString(1), new long[3]));
+    for (var c : dao.openWork("all", null, 5000)) {
+      var row = open.computeIfAbsent(c.department(), k -> new long[3]);
+      row[0]++;
+      if (c.isOverdue()) row[1]++;
+    }
+    jdbc.query(
+        "SELECT d.name,COUNT(*) FROM complaints c JOIN departments d ON d.id=c.department_id"
+            + " WHERE c.deleted_at IS NULL AND c.status='CLOSED' GROUP BY d.name",
+        (RowCallbackHandler)
+            r -> open.computeIfAbsent(r.getString(1), k -> new long[3])[2] = r.getLong(2));
+    long max = open.values().stream().mapToLong(v -> v[0]).max().orElse(0);
+    return open.entrySet().stream()
+        .map(
+            e ->
+                new DepartmentLoad(
+                    e.getKey(),
+                    e.getValue()[0],
+                    e.getValue()[1],
+                    e.getValue()[2],
+                    max == 0 ? 0 : (int) Math.round(e.getValue()[0] * 100.0 / max)))
+        .sorted(Comparator.comparingLong(DepartmentLoad::open).reversed())
+        .toList();
+  }
+
+  /** Reports past their target resolution time, most overdue first. */
+  public List<Complaint> overdue(CurrentUser u, int limit) {
+    return dao.openWork(scope(u), u.id(), 5000).stream()
+        .filter(Complaint::isOverdue)
+        .limit(limit)
+        .toList();
+  }
+
+  public long overdueCount(CurrentUser u) {
+    return dao.openWork(scope(u), u.id(), 5000).stream().filter(Complaint::isOverdue).count();
+  }
+
+  public PublicStats publicStats() {
+    var totals = dao.totals("all", null);
+    long awaiting = totals.get("REPORTED");
+    long working = totals.get("ASSIGNED") + totals.get("IN_PROGRESS");
+    long resolved = totals.get("RESOLVED") + totals.get("CLOSED");
+    long total = awaiting + working + resolved;
+    return new PublicStats(
+        total,
+        awaiting,
+        working,
+        resolved,
+        total == 0 ? 0 : (int) Math.round(resolved * 100.0 / total),
+        averageHours(null),
+        dao.categories().size(),
+        places.zones().size());
+  }
+
+  /** Mean hours from report to citizen-verified closure; {@code null} user means city-wide. */
   public String averageHours(CurrentUser u) {
-    String where =
-        u.role() == Role.ADMIN
-            ? ""
-            : u.role() == Role.CITIZEN ? " AND reporter_id=?" : " AND assigned_officer_id=?";
+    var args = new ArrayList<Object>();
+    String where = u == null ? "" : scopeCondition(u, args);
     long[] values = {0, 0};
     jdbc.query(
-        "SELECT created_at,closed_at FROM complaints WHERE deleted_at IS NULL AND status='CLOSED'"
+        "SELECT c.created_at,c.closed_at FROM complaints c WHERE c.deleted_at IS NULL AND"
+            + " c.status='CLOSED'"
             + where,
         (RowCallbackHandler)
             r -> {
@@ -245,7 +390,7 @@ public class InsightsService {
                           .toMinutes());
               values[1]++;
             },
-        u.role() == Role.ADMIN ? new Object[0] : new Object[] {u.id()});
+        args.toArray());
     return values[1] == 0 ? "—" : String.format(Locale.ROOT, "%.1f", values[0] / 60.0 / values[1]);
   }
 
@@ -253,8 +398,8 @@ public class InsightsService {
     var rows = dao.list(scope(user), user.id(), status, query, 0, 1000);
     StringBuilder text =
         new StringBuilder(
-            "Reference,Title,Category,Status,Address,Latitude,Longitude,Created UTC,Updated"
-                + " UTC\r\n");
+            "Reference,Title,Category,Department,Status,Zone,Address,Latitude,Longitude,Created"
+                + " UTC,Updated UTC,Due UTC,Overdue,Anonymous\r\n");
     for (var c : rows)
       text.append(
               String.join(
@@ -263,12 +408,17 @@ public class InsightsService {
                           c.reference(),
                           c.title(),
                           c.category(),
+                          c.department(),
                           c.status().name(),
+                          places.zoneOf(c.latitude(), c.longitude()),
                           c.address(),
                           Double.toString(c.latitude()),
                           Double.toString(c.longitude()),
                           c.createdAt().toString(),
-                          c.updatedAt().toString())
+                          c.updatedAt().toString(),
+                          c.dueAt().toString(),
+                          c.isOverdue() ? "Yes" : "No",
+                          c.anonymous() ? "Yes" : "No")
                       .stream()
                       .map(InsightsService::cell)
                       .toList()))

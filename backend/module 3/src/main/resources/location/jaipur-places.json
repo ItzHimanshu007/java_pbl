@@ -1,0 +1,866 @@
+{
+ "zones": [
+  {
+   "name": "Walled City",
+   "hindi": "परकोटा"
+  },
+  {
+   "name": "Hawa Mahal–Amer",
+   "hindi": "हवामहल-आमेर"
+  },
+  {
+   "name": "Civil Lines",
+   "hindi": "सिविल लाइंस"
+  },
+  {
+   "name": "Adarsh Nagar",
+   "hindi": "आदर्श नगर"
+  },
+  {
+   "name": "Malviya Nagar",
+   "hindi": "मालवीय नगर"
+  },
+  {
+   "name": "Mansarovar",
+   "hindi": "मानसरोवर"
+  },
+  {
+   "name": "Sanganer",
+   "hindi": "सांगानेर"
+  },
+  {
+   "name": "Jagatpura",
+   "hindi": "जगतपुरा"
+  },
+  {
+   "name": "Vaishali Nagar",
+   "hindi": "वैशाली नगर"
+  },
+  {
+   "name": "Jhotwara",
+   "hindi": "झोटवाड़ा"
+  },
+  {
+   "name": "Vidhyadhar Nagar",
+   "hindi": "विद्याधर नगर"
+  },
+  {
+   "name": "Murlipura",
+   "hindi": "मुरलीपुरा"
+  }
+ ],
+ "places": [
+  {
+   "name": "Hawa Mahal",
+   "hindi": "हवा महल",
+   "zone": "Walled City",
+   "latitude": 26.9239,
+   "longitude": 75.8267
+  },
+  {
+   "name": "City Palace",
+   "hindi": "सिटी पैलेस",
+   "zone": "Walled City",
+   "latitude": 26.9258,
+   "longitude": 75.8237
+  },
+  {
+   "name": "Jantar Mantar",
+   "hindi": "जंतर मंतर",
+   "zone": "Walled City",
+   "latitude": 26.9248,
+   "longitude": 75.8246
+  },
+  {
+   "name": "Johari Bazaar",
+   "hindi": "जौहरी बाज़ार",
+   "zone": "Walled City",
+   "latitude": 26.9205,
+   "longitude": 75.8268
+  },
+  {
+   "name": "Bapu Bazaar",
+   "hindi": "बापू बाज़ार",
+   "zone": "Walled City",
+   "latitude": 26.9168,
+   "longitude": 75.8205
+  },
+  {
+   "name": "Nehru Bazaar",
+   "hindi": "नेहरू बाज़ार",
+   "zone": "Walled City",
+   "latitude": 26.9172,
+   "longitude": 75.8172
+  },
+  {
+   "name": "Tripolia Bazaar",
+   "hindi": "त्रिपोलिया बाज़ार",
+   "zone": "Walled City",
+   "latitude": 26.9243,
+   "longitude": 75.8218
+  },
+  {
+   "name": "Chandpole Bazaar",
+   "hindi": "चांदपोल बाज़ार",
+   "zone": "Walled City",
+   "latitude": 26.9262,
+   "longitude": 75.8135
+  },
+  {
+   "name": "Kishanpole Bazaar",
+   "hindi": "किशनपोल बाज़ार",
+   "zone": "Walled City",
+   "latitude": 26.9222,
+   "longitude": 75.8172
+  },
+  {
+   "name": "Badi Chaupar",
+   "hindi": "बड़ी चौपड़",
+   "zone": "Walled City",
+   "latitude": 26.924,
+   "longitude": 75.8276
+  },
+  {
+   "name": "Choti Chaupar",
+   "hindi": "छोटी चौपड़",
+   "zone": "Walled City",
+   "latitude": 26.925,
+   "longitude": 75.8196
+  },
+  {
+   "name": "Ramganj Bazaar",
+   "hindi": "रामगंज बाज़ार",
+   "zone": "Walled City",
+   "latitude": 26.9218,
+   "longitude": 75.8392
+  },
+  {
+   "name": "Galta Gate",
+   "hindi": "गलता गेट",
+   "zone": "Walled City",
+   "latitude": 26.9228,
+   "longitude": 75.8442
+  },
+  {
+   "name": "Suraj Pole",
+   "hindi": "सूरजपोल",
+   "zone": "Walled City",
+   "latitude": 26.92,
+   "longitude": 75.8428
+  },
+  {
+   "name": "Sanganeri Gate",
+   "hindi": "सांगानेरी गेट",
+   "zone": "Walled City",
+   "latitude": 26.9156,
+   "longitude": 75.8294
+  },
+  {
+   "name": "Ajmeri Gate",
+   "hindi": "अजमेरी गेट",
+   "zone": "Walled City",
+   "latitude": 26.916,
+   "longitude": 75.815
+  },
+  {
+   "name": "New Gate",
+   "hindi": "न्यू गेट",
+   "zone": "Walled City",
+   "latitude": 26.9157,
+   "longitude": 75.8208
+  },
+  {
+   "name": "Ghat Gate",
+   "hindi": "घाटगेट",
+   "zone": "Walled City",
+   "latitude": 26.9132,
+   "longitude": 75.8368
+  },
+  {
+   "name": "Gangauri Bazaar",
+   "hindi": "गणगौरी बाज़ार",
+   "zone": "Walled City",
+   "latitude": 26.929,
+   "longitude": 75.8232
+  },
+  {
+   "name": "Purani Basti",
+   "hindi": "पुरानी बस्ती",
+   "zone": "Walled City",
+   "latitude": 26.9318,
+   "longitude": 75.8172
+  },
+  {
+   "name": "Subhash Chowk",
+   "hindi": "सुभाष चौक",
+   "zone": "Walled City",
+   "latitude": 26.9345,
+   "longitude": 75.8252
+  },
+  {
+   "name": "Ram Niwas Bagh",
+   "hindi": "रामनिवास बाग",
+   "zone": "Walled City",
+   "latitude": 26.9117,
+   "longitude": 75.8195
+  },
+  {
+   "name": "Amer",
+   "hindi": "आमेर",
+   "zone": "Hawa Mahal–Amer",
+   "latitude": 26.9855,
+   "longitude": 75.8513
+  },
+  {
+   "name": "Jal Mahal",
+   "hindi": "जल महल",
+   "zone": "Hawa Mahal–Amer",
+   "latitude": 26.9535,
+   "longitude": 75.8463
+  },
+  {
+   "name": "Kanak Ghati",
+   "hindi": "कनक घाटी",
+   "zone": "Hawa Mahal–Amer",
+   "latitude": 26.9718,
+   "longitude": 75.8478
+  },
+  {
+   "name": "Brahmpuri",
+   "hindi": "ब्रह्मपुरी",
+   "zone": "Hawa Mahal–Amer",
+   "latitude": 26.9385,
+   "longitude": 75.8215
+  },
+  {
+   "name": "Gangapole",
+   "hindi": "गंगापोल",
+   "zone": "Hawa Mahal–Amer",
+   "latitude": 26.9365,
+   "longitude": 75.8282
+  },
+  {
+   "name": "Nahargarh Road",
+   "hindi": "नाहरगढ़ रोड",
+   "zone": "Hawa Mahal–Amer",
+   "latitude": 26.933,
+   "longitude": 75.816
+  },
+  {
+   "name": "Zorawar Singh Gate",
+   "hindi": "ज़ोरावर सिंह गेट",
+   "zone": "Hawa Mahal–Amer",
+   "latitude": 26.9405,
+   "longitude": 75.8345
+  },
+  {
+   "name": "Delhi Bypass",
+   "hindi": "दिल्ली बाईपास",
+   "zone": "Hawa Mahal–Amer",
+   "latitude": 26.948,
+   "longitude": 75.841
+  },
+  {
+   "name": "Jaisinghpura Khor",
+   "hindi": "जयसिंहपुरा खोर",
+   "zone": "Hawa Mahal–Amer",
+   "latitude": 26.9895,
+   "longitude": 75.8705
+  },
+  {
+   "name": "Civil Lines",
+   "hindi": "सिविल लाइंस",
+   "zone": "Civil Lines",
+   "latitude": 26.9078,
+   "longitude": 75.7882
+  },
+  {
+   "name": "Bani Park",
+   "hindi": "बनी पार्क",
+   "zone": "Civil Lines",
+   "latitude": 26.9302,
+   "longitude": 75.7952
+  },
+  {
+   "name": "Sindhi Camp",
+   "hindi": "सिंधी कैंप",
+   "zone": "Civil Lines",
+   "latitude": 26.9225,
+   "longitude": 75.7985
+  },
+  {
+   "name": "Jaipur Junction",
+   "hindi": "जयपुर जंक्शन",
+   "zone": "Civil Lines",
+   "latitude": 26.9196,
+   "longitude": 75.7878
+  },
+  {
+   "name": "Hasanpura",
+   "hindi": "हसनपुरा",
+   "zone": "Civil Lines",
+   "latitude": 26.918,
+   "longitude": 75.7772
+  },
+  {
+   "name": "Sodala",
+   "hindi": "सोडाला",
+   "zone": "Civil Lines",
+   "latitude": 26.903,
+   "longitude": 75.7752
+  },
+  {
+   "name": "Gopal Bari",
+   "hindi": "गोपालबाड़ी",
+   "zone": "Civil Lines",
+   "latitude": 26.9135,
+   "longitude": 75.7955
+  },
+  {
+   "name": "Bais Godam",
+   "hindi": "बाईस गोदाम",
+   "zone": "Civil Lines",
+   "latitude": 26.9092,
+   "longitude": 75.7895
+  },
+  {
+   "name": "Collectorate Circle",
+   "hindi": "कलेक्ट्रेट सर्किल",
+   "zone": "Civil Lines",
+   "latitude": 26.933,
+   "longitude": 75.7905
+  },
+  {
+   "name": "Chomu House Circle",
+   "hindi": "चौमूं हाउस सर्किल",
+   "zone": "Civil Lines",
+   "latitude": 26.9238,
+   "longitude": 75.8032
+  },
+  {
+   "name": "Khasa Kothi Circle",
+   "hindi": "खासा कोठी सर्किल",
+   "zone": "Civil Lines",
+   "latitude": 26.9205,
+   "longitude": 75.8
+  },
+  {
+   "name": "C-Scheme",
+   "hindi": "सी-स्कीम",
+   "zone": "Civil Lines",
+   "latitude": 26.9075,
+   "longitude": 75.8005
+  },
+  {
+   "name": "MI Road",
+   "hindi": "एम.आई. रोड",
+   "zone": "Civil Lines",
+   "latitude": 26.9168,
+   "longitude": 75.8058
+  },
+  {
+   "name": "Panch Batti",
+   "hindi": "पांच बत्ती",
+   "zone": "Civil Lines",
+   "latitude": 26.9175,
+   "longitude": 75.809
+  },
+  {
+   "name": "Statue Circle",
+   "hindi": "स्टैच्यू सर्किल",
+   "zone": "Civil Lines",
+   "latitude": 26.9048,
+   "longitude": 75.8003
+  },
+  {
+   "name": "Central Park",
+   "hindi": "सेंट्रल पार्क",
+   "zone": "Civil Lines",
+   "latitude": 26.9065,
+   "longitude": 75.8075
+  },
+  {
+   "name": "Adarsh Nagar",
+   "hindi": "आदर्श नगर",
+   "zone": "Adarsh Nagar",
+   "latitude": 26.903,
+   "longitude": 75.8295
+  },
+  {
+   "name": "Raja Park",
+   "hindi": "राजा पार्क",
+   "zone": "Adarsh Nagar",
+   "latitude": 26.899,
+   "longitude": 75.829
+  },
+  {
+   "name": "Janta Colony",
+   "hindi": "जनता कॉलोनी",
+   "zone": "Adarsh Nagar",
+   "latitude": 26.9098,
+   "longitude": 75.8392
+  },
+  {
+   "name": "Sethi Colony",
+   "hindi": "सेठी कॉलोनी",
+   "zone": "Adarsh Nagar",
+   "latitude": 26.905,
+   "longitude": 75.8352
+  },
+  {
+   "name": "Transport Nagar",
+   "hindi": "ट्रांसपोर्ट नगर",
+   "zone": "Adarsh Nagar",
+   "latitude": 26.908,
+   "longitude": 75.8478
+  },
+  {
+   "name": "Agra Road",
+   "hindi": "आगरा रोड",
+   "zone": "Adarsh Nagar",
+   "latitude": 26.905,
+   "longitude": 75.865
+  },
+  {
+   "name": "Jamdoli",
+   "hindi": "जामडोली",
+   "zone": "Adarsh Nagar",
+   "latitude": 26.904,
+   "longitude": 75.877
+  },
+  {
+   "name": "Galta Ji",
+   "hindi": "गलताजी",
+   "zone": "Adarsh Nagar",
+   "latitude": 26.9185,
+   "longitude": 75.858
+  },
+  {
+   "name": "Jawahar Nagar",
+   "hindi": "जवाहर नगर",
+   "zone": "Adarsh Nagar",
+   "latitude": 26.888,
+   "longitude": 75.833
+  },
+  {
+   "name": "Tilak Nagar",
+   "hindi": "तिलक नगर",
+   "zone": "Adarsh Nagar",
+   "latitude": 26.896,
+   "longitude": 75.823
+  },
+  {
+   "name": "Moti Dungri",
+   "hindi": "मोती डूंगरी",
+   "zone": "Adarsh Nagar",
+   "latitude": 26.8935,
+   "longitude": 75.817
+  },
+  {
+   "name": "Rambagh Circle",
+   "hindi": "रामबाग सर्किल",
+   "zone": "Adarsh Nagar",
+   "latitude": 26.8985,
+   "longitude": 75.8085
+  },
+  {
+   "name": "SMS Hospital",
+   "hindi": "एस.एम.एस. अस्पताल",
+   "zone": "Adarsh Nagar",
+   "latitude": 26.9046,
+   "longitude": 75.8155
+  },
+  {
+   "name": "Kho Nagoriyan",
+   "hindi": "खो नागोरियान",
+   "zone": "Adarsh Nagar",
+   "latitude": 26.878,
+   "longitude": 75.866
+  },
+  {
+   "name": "Malviya Nagar",
+   "hindi": "मालवीय नगर",
+   "zone": "Malviya Nagar",
+   "latitude": 26.855,
+   "longitude": 75.824
+  },
+  {
+   "name": "Gaurav Tower",
+   "hindi": "गौरव टावर",
+   "zone": "Malviya Nagar",
+   "latitude": 26.8555,
+   "longitude": 75.8065
+  },
+  {
+   "name": "Jawahar Circle",
+   "hindi": "जवाहर सर्किल",
+   "zone": "Malviya Nagar",
+   "latitude": 26.841,
+   "longitude": 75.8005
+  },
+  {
+   "name": "JLN Marg",
+   "hindi": "जेएलएन मार्ग",
+   "zone": "Malviya Nagar",
+   "latitude": 26.878,
+   "longitude": 75.814
+  },
+  {
+   "name": "Jhalana Doongri",
+   "hindi": "झालाना डूंगरी",
+   "zone": "Malviya Nagar",
+   "latitude": 26.876,
+   "longitude": 75.824
+  },
+  {
+   "name": "Gandhi Nagar",
+   "hindi": "गांधी नगर",
+   "zone": "Malviya Nagar",
+   "latitude": 26.879,
+   "longitude": 75.8035
+  },
+  {
+   "name": "Bapu Nagar",
+   "hindi": "बापू नगर",
+   "zone": "Malviya Nagar",
+   "latitude": 26.8915,
+   "longitude": 75.811
+  },
+  {
+   "name": "Rajasthan University",
+   "hindi": "राजस्थान विश्वविद्यालय",
+   "zone": "Malviya Nagar",
+   "latitude": 26.8875,
+   "longitude": 75.8175
+  },
+  {
+   "name": "Lal Kothi",
+   "hindi": "लालकोठी",
+   "zone": "Malviya Nagar",
+   "latitude": 26.887,
+   "longitude": 75.802
+  },
+  {
+   "name": "Tonk Road",
+   "hindi": "टोंक रोड",
+   "zone": "Malviya Nagar",
+   "latitude": 26.87,
+   "longitude": 75.802
+  },
+  {
+   "name": "Sahakar Marg",
+   "hindi": "सहकार मार्ग",
+   "zone": "Malviya Nagar",
+   "latitude": 26.888,
+   "longitude": 75.798
+  },
+  {
+   "name": "Durgapura",
+   "hindi": "दुर्गापुरा",
+   "zone": "Malviya Nagar",
+   "latitude": 26.853,
+   "longitude": 75.795
+  },
+  {
+   "name": "Mansarovar",
+   "hindi": "मानसरोवर",
+   "zone": "Mansarovar",
+   "latitude": 26.868,
+   "longitude": 75.76
+  },
+  {
+   "name": "Shipra Path",
+   "hindi": "शिप्रा पथ",
+   "zone": "Mansarovar",
+   "latitude": 26.858,
+   "longitude": 75.769
+  },
+  {
+   "name": "Agarwal Farm",
+   "hindi": "अग्रवाल फार्म",
+   "zone": "Mansarovar",
+   "latitude": 26.856,
+   "longitude": 75.755
+  },
+  {
+   "name": "New Sanganer Road",
+   "hindi": "नया सांगानेर रोड",
+   "zone": "Mansarovar",
+   "latitude": 26.88,
+   "longitude": 75.769
+  },
+  {
+   "name": "Gopalpura",
+   "hindi": "गोपालपुरा",
+   "zone": "Mansarovar",
+   "latitude": 26.8625,
+   "longitude": 75.787
+  },
+  {
+   "name": "Triveni Nagar",
+   "hindi": "त्रिवेणी नगर",
+   "zone": "Mansarovar",
+   "latitude": 26.86,
+   "longitude": 75.783
+  },
+  {
+   "name": "Mahesh Nagar",
+   "hindi": "महेश नगर",
+   "zone": "Mansarovar",
+   "latitude": 26.873,
+   "longitude": 75.782
+  },
+  {
+   "name": "Barkat Nagar",
+   "hindi": "बरकत नगर",
+   "zone": "Mansarovar",
+   "latitude": 26.882,
+   "longitude": 75.787
+  },
+  {
+   "name": "Tonk Phatak",
+   "hindi": "टोंक फाटक",
+   "zone": "Mansarovar",
+   "latitude": 26.879,
+   "longitude": 75.793
+  },
+  {
+   "name": "Shyam Nagar",
+   "hindi": "श्याम नगर",
+   "zone": "Mansarovar",
+   "latitude": 26.893,
+   "longitude": 75.766
+  },
+  {
+   "name": "Sanganer",
+   "hindi": "सांगानेर",
+   "zone": "Sanganer",
+   "latitude": 26.815,
+   "longitude": 75.786
+  },
+  {
+   "name": "Pratap Nagar",
+   "hindi": "प्रताप नगर",
+   "zone": "Sanganer",
+   "latitude": 26.803,
+   "longitude": 75.823
+  },
+  {
+   "name": "Sitapura",
+   "hindi": "सीतापुरा",
+   "zone": "Sanganer",
+   "latitude": 26.7845,
+   "longitude": 75.846
+  },
+  {
+   "name": "Muhana",
+   "hindi": "मुहाना",
+   "zone": "Sanganer",
+   "latitude": 26.799,
+   "longitude": 75.766
+  },
+  {
+   "name": "Sanganer Airport",
+   "hindi": "सांगानेर हवाई अड्डा",
+   "zone": "Sanganer",
+   "latitude": 26.8242,
+   "longitude": 75.8122
+  },
+  {
+   "name": "Jagatpura",
+   "hindi": "जगतपुरा",
+   "zone": "Jagatpura",
+   "latitude": 26.8255,
+   "longitude": 75.856
+  },
+  {
+   "name": "Goner Road",
+   "hindi": "गोनेर रोड",
+   "zone": "Jagatpura",
+   "latitude": 26.832,
+   "longitude": 75.87
+  },
+  {
+   "name": "Mahal Road",
+   "hindi": "महल रोड",
+   "zone": "Jagatpura",
+   "latitude": 26.838,
+   "longitude": 75.856
+  },
+  {
+   "name": "Indira Gandhi Nagar",
+   "hindi": "इंदिरा गांधी नगर",
+   "zone": "Jagatpura",
+   "latitude": 26.8125,
+   "longitude": 75.872
+  },
+  {
+   "name": "Vaishali Nagar",
+   "hindi": "वैशाली नगर",
+   "zone": "Vaishali Nagar",
+   "latitude": 26.9115,
+   "longitude": 75.743
+  },
+  {
+   "name": "Chitrakoot",
+   "hindi": "चित्रकूट",
+   "zone": "Vaishali Nagar",
+   "latitude": 26.901,
+   "longitude": 75.7345
+  },
+  {
+   "name": "Gandhi Path",
+   "hindi": "गांधी पथ",
+   "zone": "Vaishali Nagar",
+   "latitude": 26.906,
+   "longitude": 75.73
+  },
+  {
+   "name": "Queens Road",
+   "hindi": "क्वींस रोड",
+   "zone": "Vaishali Nagar",
+   "latitude": 26.9135,
+   "longitude": 75.761
+  },
+  {
+   "name": "Nirman Nagar",
+   "hindi": "निर्माण नगर",
+   "zone": "Vaishali Nagar",
+   "latitude": 26.892,
+   "longitude": 75.759
+  },
+  {
+   "name": "Ajmer Road (Purani Chungi)",
+   "hindi": "अजमेर रोड (पुरानी चुंगी)",
+   "zone": "Vaishali Nagar",
+   "latitude": 26.8975,
+   "longitude": 75.7555
+  },
+  {
+   "name": "200 Feet Bypass",
+   "hindi": "200 फीट बाईपास",
+   "zone": "Vaishali Nagar",
+   "latitude": 26.8935,
+   "longitude": 75.74
+  },
+  {
+   "name": "Heerapura",
+   "hindi": "हीरापुरा",
+   "zone": "Vaishali Nagar",
+   "latitude": 26.887,
+   "longitude": 75.727
+  },
+  {
+   "name": "Bhankrota",
+   "hindi": "भांकरोटा",
+   "zone": "Vaishali Nagar",
+   "latitude": 26.877,
+   "longitude": 75.688
+  },
+  {
+   "name": "Jhotwara",
+   "hindi": "झोटवाड़ा",
+   "zone": "Jhotwara",
+   "latitude": 26.952,
+   "longitude": 75.742
+  },
+  {
+   "name": "Kalwar Road",
+   "hindi": "कालवाड़ रोड",
+   "zone": "Jhotwara",
+   "latitude": 26.964,
+   "longitude": 75.723
+  },
+  {
+   "name": "Niwaru Road",
+   "hindi": "निवारू रोड",
+   "zone": "Jhotwara",
+   "latitude": 26.962,
+   "longitude": 75.737
+  },
+  {
+   "name": "Khatipura",
+   "hindi": "खातीपुरा",
+   "zone": "Jhotwara",
+   "latitude": 26.9285,
+   "longitude": 75.753
+  },
+  {
+   "name": "Jhotwara Industrial Area",
+   "hindi": "झोटवाड़ा औद्योगिक क्षेत्र",
+   "zone": "Jhotwara",
+   "latitude": 26.942,
+   "longitude": 75.751
+  },
+  {
+   "name": "Vidhyadhar Nagar",
+   "hindi": "विद्याधर नगर",
+   "zone": "Vidhyadhar Nagar",
+   "latitude": 26.961,
+   "longitude": 75.778
+  },
+  {
+   "name": "Sikar Road",
+   "hindi": "सीकर रोड",
+   "zone": "Vidhyadhar Nagar",
+   "latitude": 26.975,
+   "longitude": 75.777
+  },
+  {
+   "name": "Ambabari",
+   "hindi": "अंबाबाड़ी",
+   "zone": "Vidhyadhar Nagar",
+   "latitude": 26.952,
+   "longitude": 75.787
+  },
+  {
+   "name": "Shastri Nagar",
+   "hindi": "शास्त्री नगर",
+   "zone": "Vidhyadhar Nagar",
+   "latitude": 26.943,
+   "longitude": 75.795
+  },
+  {
+   "name": "Subhash Nagar",
+   "hindi": "सुभाष नगर",
+   "zone": "Vidhyadhar Nagar",
+   "latitude": 26.944,
+   "longitude": 75.803
+  },
+  {
+   "name": "Nahari ka Naka",
+   "hindi": "नाहरी का नाका",
+   "zone": "Vidhyadhar Nagar",
+   "latitude": 26.9505,
+   "longitude": 75.803
+  },
+  {
+   "name": "VKI Area",
+   "hindi": "वी.के.आई. क्षेत्र",
+   "zone": "Vidhyadhar Nagar",
+   "latitude": 26.985,
+   "longitude": 75.772
+  },
+  {
+   "name": "Murlipura",
+   "hindi": "मुरलीपुरा",
+   "zone": "Murlipura",
+   "latitude": 26.9665,
+   "longitude": 75.753
+  },
+  {
+   "name": "Harmada",
+   "hindi": "हरमाड़ा",
+   "zone": "Murlipura",
+   "latitude": 27.0,
+   "longitude": 75.77
+  },
+  {
+   "name": "Benar Road",
+   "hindi": "बेनाड़ रोड",
+   "zone": "Murlipura",
+   "latitude": 26.98,
+   "longitude": 75.745
+  }
+ ]
+}

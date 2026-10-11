@@ -43,7 +43,16 @@ public class SecurityConfiguration {
                 routes
                     .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.ERROR)
                     .permitAll()
-                    .requestMatchers("/", "/login", "/register", "/assets/**", "/error", "/health")
+                    .requestMatchers(
+                        "/",
+                        "/login",
+                        "/register",
+                        "/assets/**",
+                        "/error",
+                        "/health",
+                        "/track",
+                        "/i18n/**",
+                        "/preferences")
                     .permitAll()
                     .requestMatchers("/admin/**")
                     .hasRole("ADMIN")
@@ -79,7 +88,9 @@ public class SecurityConfiguration {
                     policy ->
                         policy.policyDirectives(
                             "default-src 'self'; script-src 'self'; style-src 'self'; img-src"
-                                + " 'self' data: blob: https://tile.openstreetmap.org;"
+                                + " 'self' data: blob: https://tile.openstreetmap.org"
+                                + " https://*.basemaps.cartocdn.com"
+                                + " https://server.arcgisonline.com;"
                                 + " frame-ancestors 'none'; base-uri 'self'; form-action 'self'")))
         .addFilterBefore(jwt, UsernamePasswordAuthenticationFilter.class);
     return http.build();

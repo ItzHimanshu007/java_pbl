@@ -10,13 +10,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class PageController {
   private final ObjectProvider<WorkspaceFeature> features;
+  private final ObjectProvider<HomeContributor> home;
 
-  public PageController(ObjectProvider<WorkspaceFeature> features) {
+  public PageController(
+      ObjectProvider<WorkspaceFeature> features, ObjectProvider<HomeContributor> home) {
     this.features = features;
+    this.home = home;
   }
 
   @GetMapping("/")
-  public String home() {
+  public String home(Model model) {
+    home.orderedStream().forEach(h -> h.add(model));
     return "home";
   }
 

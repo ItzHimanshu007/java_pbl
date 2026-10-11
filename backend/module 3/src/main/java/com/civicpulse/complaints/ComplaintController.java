@@ -1,6 +1,7 @@
 package com.civicpulse.complaints;
 
 import com.civicpulse.auth.CurrentUser;
+import com.civicpulse.location.JaipurPlaces;
 import com.civicpulse.shared.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.ObjectProvider;
@@ -19,23 +20,29 @@ public class ComplaintController {
   private final SubmissionService service;
   private final ImageStore images;
   private final ObjectProvider<DetailContributor> details;
+  private final JaipurPlaces places;
 
   public ComplaintController(
       ComplaintDao dao,
       ComplaintAccess access,
       SubmissionService service,
       ImageStore images,
-      ObjectProvider<DetailContributor> details) {
+      ObjectProvider<DetailContributor> details,
+      JaipurPlaces places) {
     this.dao = dao;
     this.access = access;
     this.service = service;
     this.images = images;
     this.details = details;
+    this.places = places;
   }
 
   @GetMapping("/citizen/reports/new")
-  public String create(Model m) {
-    m.addAttribute("complaintForm", new ComplaintForm());
+  public String create(@RequestParam(required = false) Long category, Model m) {
+    var form = new ComplaintForm();
+    if (category != null && dao.categories().stream().anyMatch(c -> c.id() == category))
+      form.setCategoryId(category);
+    m.addAttribute("complaintForm", form);
     return form(m, null);
   }
 
@@ -85,7 +92,9 @@ public class ComplaintController {
     var all = images.list(id);
     m.addAttribute("originals", all.stream().filter(i -> i.purpose().equals("ORIGINAL")).toList());
     m.addAttribute("repairs", all.stream().filter(i -> i.purpose().equals("REPAIR")).toList());
-    m.addAttribute("canDelete", user.role() == Role.CITIZEN && c.reporterId() == user.id());
+    m.addAttribute("canDelete", access.isOwner(c, user));
+    m.addAttribute("isOwner", access.isOwner(c, user));
+    m.addAttribute("zone", places.zoneOf(c.latitude(), c.longitude()));
     details.orderedStream().forEach(d -> d.add(c, user, m));
     return "complaints/detail";
   }
@@ -125,6 +134,7 @@ public class ComplaintController {
 
   private String form(Model m, Long id) {
     m.addAttribute("categories", dao.categories());
+    m.addAttribute("zones", places.zones());
     m.addAttribute("editId", id);
     return "complaints/form";
   }

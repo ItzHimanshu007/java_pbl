@@ -43,6 +43,9 @@ public class ViewContext {
       language = p.language();
       theme = p.theme();
     }
+    String query = request.getQueryString();
+    String path = request.getRequestURI().substring(request.getContextPath().length());
+    model.addAttribute("currentPath", query == null ? path : path + "?" + query);
     model.addAttribute("language", language);
     model.addAttribute("theme", theme);
     model.addAttribute("ui", text.forLanguage(language));

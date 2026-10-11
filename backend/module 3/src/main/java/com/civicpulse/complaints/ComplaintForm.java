@@ -5,6 +5,17 @@ import jakarta.validation.constraints.*;
 public class ComplaintForm {
   @Positive private Long relatedReportId;
 
+  /** Hide the reporter's identity; only a keyed hash of the account is stored. */
+  private boolean anonymous;
+
+  public boolean isAnonymous() {
+    return anonymous;
+  }
+
+  public void setAnonymous(boolean v) {
+    anonymous = v;
+  }
+
   public Long getRelatedReportId() {
     return relatedReportId;
   }

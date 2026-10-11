@@ -65,7 +65,7 @@ public class ResolutionService {
     dao.transition(id, ComplaintStatus.CLOSED, c.assignedOfficerId());
     dao.event(
         id,
-        user.id(),
+        access.actor(c, user),
         "CITIZEN_CONFIRMED",
         c.status(),
         ComplaintStatus.CLOSED,
@@ -79,7 +79,7 @@ public class ResolutionService {
     require(c, ComplaintStatus.RESOLVED);
     String n = note(value);
     dao.transition(id, ComplaintStatus.IN_PROGRESS, c.assignedOfficerId());
-    dao.event(id, user.id(), "REOPENED", c.status(), ComplaintStatus.IN_PROGRESS, n);
+    dao.event(id, access.actor(c, user), "REOPENED", c.status(), ComplaintStatus.IN_PROGRESS, n);
   }
 
   private void require(Complaint c, ComplaintStatus expected) {

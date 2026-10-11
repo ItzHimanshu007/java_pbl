@@ -20,6 +20,14 @@ public class UiText {
     }
   }
 
+  public Map<String, String> hindi() {
+    return Collections.unmodifiableMap(hindi);
+  }
+
+  public Map<String, String> english() {
+    return Collections.unmodifiableMap(english);
+  }
+
   public Map<String, String> forLanguage(String language) {
     return new AbstractMap<>() {
       public String get(Object key) {

@@ -14,10 +14,15 @@ public class AdministrationWorkspace
     implements WorkspaceFeature, NavigationContributor, DetailContributor {
   private final ComplaintDao dao;
   private final AdministrationService service;
+  private final com.civicpulse.insights.InsightsService insights;
 
-  public AdministrationWorkspace(ComplaintDao dao, AdministrationService service) {
+  public AdministrationWorkspace(
+      ComplaintDao dao,
+      AdministrationService service,
+      com.civicpulse.insights.InsightsService insights) {
     this.dao = dao;
     this.service = service;
+    this.insights = insights;
   }
 
   public Role role() {
@@ -26,7 +31,14 @@ public class AdministrationWorkspace
 
   public String render(CurrentUser u, Model m) {
     m.addAttribute("totals", dao.totals("all", null));
-    m.addAttribute("reports", dao.list("all", null, "REPORTED", null, 0, 5));
+    m.addAttribute("reports", dao.list("all", null, "REPORTED", null, 0, 6));
+    m.addAttribute("overdueReports", insights.overdue(u, 6));
+    m.addAttribute("overdueCount", insights.overdueCount(u));
+    m.addAttribute("departmentLoad", insights.departmentLoad());
+    m.addAttribute("zoneRows", insights.zoneRows(u));
+    m.addAttribute("categoryRows", insights.categoryRows(u).stream().limit(8).toList());
+    m.addAttribute("averageHours", insights.averageHours(u));
+    m.addAttribute("officerCount", service.officers().stream().filter(Officer::enabled).count());
     return "administration/dashboard";
   }
 

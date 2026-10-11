@@ -18,7 +18,10 @@ public record CommunityReport(
     long issueRootId,
     long repeatCount,
     String priority,
-    int progress) {
+    int progress,
+    String categoryCode,
+    String zone,
+    String createdAt) {
   public long getRepeatCount() {
     return repeatCount;
   }
@@ -77,5 +80,17 @@ public record CommunityReport(
 
   public boolean isMine() {
     return mine;
+  }
+
+  public String getCategoryCode() {
+    return categoryCode == null || categoryCode.isBlank() ? "other" : categoryCode;
+  }
+
+  public String getZone() {
+    return zone;
+  }
+
+  public String getCreatedAt() {
+    return createdAt;
   }
 }
