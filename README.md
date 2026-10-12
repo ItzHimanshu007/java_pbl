@@ -70,13 +70,14 @@ A citizen can tick **Report anonymously** when submitting. The report, its photo
 
 ## Five members, three source folders
 
-| Folder | Owner responsibility |
-| --- | --- |
-| `database/module 5` | Member 1 / owner: foundation repository, schema, migrations and integration |
-| `frontend/module 1` | Member 2: shared account/auth UI, citizen reporting, feed, map and preferences |
-| `frontend/module 2` | Member 3: admin/officer dashboards, assignment and repair/verification UI |
-| `backend/module 3` | Member 4: security/accounts, locations, reporting and community APIs |
-| `backend/module 4` | Member 5: administration, resolution and end-to-end workflow tests |
+| Folder | Developed by | Responsibility |
+| --- | --- | --- |
+| `frontend/module 1` | Dhruv Saini | Shared account/auth UI, citizen reporting, feed, map and preferences |
+| `frontend/module 2` | Ayush Sharma | Admin/officer dashboards, assignment and repair/verification UI |
+| `backend/module 3` | Himanshu Jasoriya | Security/accounts, locations, reporting and community APIs |
+| `backend/module 4` | Himanshu Jasoriya | Administration, resolution and end-to-end workflow tests |
+| `database/module 5` | Hemant Jangra | Foundation repository, schema, migrations and integration |
+| Everything else | Hitesh Kumar | Root build, scripts, deployment and documentation |
 
 These are ownership modules in one app, not independent services. The root `pom.xml` compiles both backend folders, copies both frontend asset roots and the database migrations, and builds one executable WAR at `backend/target/civicpulse.war`.
 
