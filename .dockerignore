@@ -1,11 +1,14 @@
-<<<<<<< HEAD
 .git
+.github
 .idea
 .vscode
+*.iml
 **/target
 **/node_modules
 **/reports
 backend/docs
+pbl submission
+mvnw.cmd
 .env
 .env.*
 **/*.log
@@ -16,20 +19,3 @@ data
 uploads
 .local
 runtime
-=======
-.git/
-.github/
-**/target/
-pbl submission/
-mvnw.cmd
-.idea/
-.vscode/
-*.iml
-.env
-.env.*
-*.log
-data/
-uploads/
-.local/
-runtime/
->>>>>>> 88d54985fd2ea610e797f5fae220850bdaafd07d
