@@ -27,7 +27,7 @@ The site runs on Render's free plan and sleeps after 15 minutes without visitors
 ![Spring Boot 3.5](https://img.shields.io/badge/Spring%20Boot-3.5-6DB33F?logo=springboot&logoColor=white)
 ![MySQL 8](https://img.shields.io/badge/MySQL-8-4479A1?logo=mysql&logoColor=white)
 ![Leaflet 1.9](https://img.shields.io/badge/Leaflet-1.9-199900?logo=leaflet&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-80%20passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-84%20passing-brightgreen)
 
 ## Contents
 
@@ -287,7 +287,7 @@ To run with a persistent MySQL database instead, follow [`backend/docs/SETUP.md`
 
 ## Testing
 
-`./mvnw verify` runs **80 automated tests**. Most suites start the application against a disposable H2 database and drive it through its web endpoints with MockMvc.
+`./mvnw verify` runs **84 automated tests**. Most suites start the application against a disposable H2 database and drive it through its web endpoints with MockMvc.
 
 | Test suite | Tests | Covers |
 |---|---|---|
@@ -300,6 +300,7 @@ To run with a persistent MySQL database instead, follow [`backend/docs/SETUP.md`
 | Anonymous reporting | 6 | Keyed hash, reporter-only access, anonymous verification, counting each citizen once |
 | Citizen experience | 6 | Deleting and restoring reports, linked reports, feed filters, public timeline privacy |
 | Profile | 4 | Profiles, Hindi and dark-mode preferences, validation, CSRF |
+| Sample reports | 4 | Adding the sample reports to a real database once, with sample accounts nobody can sign in to |
 | Geocoder | 3 | Address lookup, caching and safe failure handling |
 
 ## Team

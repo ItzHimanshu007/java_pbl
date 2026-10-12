@@ -91,6 +91,16 @@ As an alternative to `CP_DB_CA_CERT_BASE64`, add a Render secret file named `ca.
 5. Redeploy/restart the app and confirm the account, report and photo still exist. The cloud database persists independently of Render's container.
 6. After first provisioning, remove **both** `CP_ADMIN_EMAIL` and `CP_ADMIN_PASSWORD` from the web service environment (or set both to empty). Keep your login details saved. Leaving only one set causes startup to fail. The Blueprint's `sync: false` entries do not restore these values during later syncs.
 
+## 6. Add the Jaipur sample reports
+
+`render.yaml` sets `CP_SAMPLE_REPORTS=true`, so on its next start the app adds 50 fictional Jaipur complaints to the database, covering every zone, service and status, with timelines, photos and community support. It happens once: later starts find the sample references (`CP-DEMO-…`) and skip it.
+
+- The reports the demo files as "yours" go to the citizen account in `CP_SAMPLE_CITIZEN_EMAIL`. The officer in `CP_SAMPLE_OFFICER_EMAIL` takes the sample work of their own department. Change both values if you use other accounts; the accounts must already exist.
+- Every other sample citizen and officer is a new account at `@sample.civicpulse.invalid` with a random password nobody knows, so they cannot be used to sign in. No administrator is created; assignments are recorded under the first administrator.
+- Existing accounts and reports are not changed. The sample photos add about 25 MB to the database.
+- If the service was created with **New → Web Service** instead of a Blueprint, add the three variables under **Environment** and save; Render redeploys.
+- The Render log shows `Added the Jaipur sample reports to the database.` If they cannot be added, it shows `Jaipur sample reports were not added: …` and the app still starts.
+
 ## Limits and troubleshooting
 
 - Render's free web service sleeps after 15 minutes without inbound traffic, and the next visit can take about a minute to wake it. [Render free-tier limits](https://render.com/docs/free).

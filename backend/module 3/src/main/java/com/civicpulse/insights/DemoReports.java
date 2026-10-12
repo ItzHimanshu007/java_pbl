@@ -1,6 +1,7 @@
 package com.civicpulse.insights;
 
 import com.civicpulse.account.UserDao;
+import com.civicpulse.auth.AuthService;
 import com.civicpulse.complaints.*;
 import com.civicpulse.location.JaipurPlaces;
 import com.civicpulse.shared.*;
@@ -8,26 +9,42 @@ import java.sql.Timestamp;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.*;
-import org.springframework.context.annotation.Profile;
 import org.springframework.core.annotation.Order;
+import org.springframework.core.env.Environment;
+import org.springframework.core.env.Profiles;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.support.TransactionTemplate;
 
 /**
- * Fictional Jaipur sample complaints for the local demo profile: every zone, service and status,
- * linked issues with high and medium priority, overdue work and anonymous reports.
+ * Fictional Jaipur sample complaints: every zone, service and status, linked issues with high and
+ * medium priority, overdue work and anonymous reports. The local demo profile always adds them to
+ * its empty in-memory database. A real database gets them once when {@code CP_SAMPLE_REPORTS=true}.
  */
 @Component
-@Profile("demo")
 @Order(100)
 public class DemoReports implements ApplicationRunner {
+  private static final Logger log = LoggerFactory.getLogger(DemoReports.class);
+  /** Sample accounts in a real database: unroutable addresses, never used to sign in. */
+  static final String SAMPLE_DOMAIN = "@sample.civicpulse.invalid";
+
   private final ComplaintDao dao;
   private final ImageStore images;
   private final UserDao users;
   private final JdbcTemplate jdbc;
   private final ReporterIdentity identity;
   private final JaipurPlaces places;
+  private final PasswordEncoder passwords;
+  private final TransactionTemplate transaction;
+  private final Environment environment;
+  private final boolean sampleReports;
+  private final String citizenEmail, officerEmail, adminEmail;
   private byte[] before, after;
 
   public DemoReports(
@@ -36,13 +53,27 @@ public class DemoReports implements ApplicationRunner {
       UserDao users,
       JdbcTemplate jdbc,
       ReporterIdentity identity,
-      JaipurPlaces places) {
+      JaipurPlaces places,
+      PasswordEncoder passwords,
+      PlatformTransactionManager transactions,
+      Environment environment,
+      @Value("${civic.sample-reports.enabled:false}") boolean sampleReports,
+      @Value("${civic.sample-reports.citizen-email:}") String citizenEmail,
+      @Value("${civic.sample-reports.officer-email:}") String officerEmail,
+      @Value("${civic.bootstrap.email:}") String adminEmail) {
     this.dao = dao;
     this.images = images;
     this.users = users;
     this.jdbc = jdbc;
     this.identity = identity;
     this.places = places;
+    this.passwords = passwords;
+    this.transaction = new TransactionTemplate(transactions);
+    this.environment = environment;
+    this.sampleReports = sampleReports;
+    this.citizenEmail = citizenEmail;
+    this.officerEmail = officerEmail;
+    this.adminEmail = adminEmail;
   }
 
   /** reporter: -1 is the demo citizen, 0-11 are sample citizens. */
@@ -503,8 +534,24 @@ public class DemoReports implements ApplicationRunner {
     return list;
   }
 
+  @Override
   public void run(ApplicationArguments args) throws Exception {
-    if (dao.count("all", null, null, null) > 0) return;
+    if (environment.acceptsProfiles(Profiles.of("demo"))) {
+      if (dao.count("all", null, null, null) == 0) addDemoReports();
+    } else if (sampleReports) {
+      // Sample data must never stop the real application from starting.
+      try {
+        if (addSampleReports(citizenEmail, officerEmail, adminEmail))
+          log.info("Added the Jaipur sample reports to the database.");
+        else log.info("Jaipur sample reports are already in the database.");
+      } catch (RuntimeException ex) {
+        log.warn("Jaipur sample reports were not added: {}", ex.getMessage());
+      }
+    }
+  }
+
+  /** Local demo: the demo accounts become the sample citizen, Roads officer and administrator. */
+  private void addDemoReports() throws Exception {
     long citizen = users.findByEmail("citizen@civicpulse.demo").orElseThrow().id();
     long roadsOfficer = users.findByEmail("officer@civicpulse.demo").orElseThrow().id();
     long admin = users.findByEmail("admin@civicpulse.demo").orElseThrow().id();
@@ -516,19 +563,123 @@ public class DemoReports implements ApplicationRunner {
     for (int i = 0; i < people.length; i++)
       people[i] =
           users.create(CITIZENS[i], "sample" + (i + 1) + "@civicpulse.demo", hash, Role.CITIZEN).id();
-    var officers = new HashMap<String, long[]>();
+    var officers = new HashMap<String, Long>();
+    officers.put("Roads and Infrastructure", roadsOfficer);
+    for (var o : OFFICERS) officers.put(o[0], officer(o[1], o[2] + "@civicpulse.demo", o[0], hash));
+    addReports(citizen, admin, people, officers);
+  }
+
+  /**
+   * Adds the sample reports to a real database once, keeping its existing accounts and reports.
+   * Reports filed by "you" in the demo go to the given citizen account, and the given officer takes
+   * the work of their own department. Every other sample citizen and officer is a new account with
+   * a random password nobody knows. No administrator is created.
+   *
+   * @return false when the sample reports are already in the database
+   */
+  public boolean addSampleReports(String citizenEmail, String officerEmail, String adminEmail) {
+    Integer existing =
+        jdbc.queryForObject(
+            "SELECT COUNT(*) FROM complaints WHERE reference LIKE 'CP-DEMO-%'", Integer.class);
+    if (existing != null && existing > 0) return false;
+    long admin =
+        account(adminEmail, Role.ADMIN)
+            .orElseGet(
+                () ->
+                    jdbc.query(
+                            "SELECT id FROM users WHERE role='ADMIN' AND enabled=TRUE ORDER BY id",
+                            (r, n) -> r.getLong(1))
+                        .stream()
+                        .findFirst()
+                        .orElseThrow(() -> new IllegalStateException("No administrator account")));
+    Optional<Long> officer = account(officerEmail, Role.OFFICER);
+    String officerDepartment =
+        officer
+            .map(
+                id ->
+                    jdbc.query(
+                            "SELECT d.name FROM users u JOIN departments d ON d.id=u.department_id "
+                                + "WHERE u.id=?",
+                            (r, n) -> r.getString(1),
+                            id)
+                        .stream()
+                        .findFirst()
+                        .orElse(null))
+            .orElse(null);
+    transaction.executeWithoutResult(
+        status -> {
+          byte[] secret = new byte[32];
+          new java.security.SecureRandom().nextBytes(secret);
+          String hash = passwords.encode(Base64.getEncoder().encodeToString(secret));
+          long citizen =
+              account(citizenEmail, Role.CITIZEN)
+                  .orElseGet(() -> sampleAccount("Riya Sharma", "riya.sharma", Role.CITIZEN, hash));
+          long[] people = new long[CITIZENS.length];
+          for (int i = 0; i < people.length; i++)
+            people[i] =
+                sampleAccount(
+                    CITIZENS[i],
+                    CITIZENS[i].toLowerCase(Locale.ROOT).replace(' ', '.'),
+                    Role.CITIZEN,
+                    hash);
+          var officers = new HashMap<String, Long>();
+          var all = new ArrayList<String[]>(List.of(OFFICERS));
+          all.add(0, new String[] {"Roads and Infrastructure", "Rakesh Meena", "roads.officer"});
+          for (var o : all)
+            officers.put(
+                o[0],
+                o[0].equals(officerDepartment)
+                    ? officer.orElseThrow()
+                    : officer(o[1], o[2] + SAMPLE_DOMAIN, o[0], hash));
+          try {
+            addReports(citizen, admin, people, officers);
+          } catch (Exception ex) {
+            throw new IllegalStateException(ex.getMessage(), ex);
+          }
+        });
+    return true;
+  }
+
+  /** An existing enabled account with this email and role, if one is configured. */
+  private Optional<Long> account(String email, Role role) {
+    if (email == null || email.isBlank()) return Optional.empty();
+    Optional<Long> id =
+        users
+            .findByEmail(AuthService.normalizeEmail(email))
+            .filter(u -> u.role() == role && u.enabled())
+            .map(u -> u.id());
+    if (id.isEmpty())
+      log.warn("No enabled {} account {}; a sample account is used instead.", role.label(), email);
+    return id;
+  }
+
+  private long sampleAccount(String name, String handle, Role role, String hash) {
+    String email = handle + SAMPLE_DOMAIN;
+    return users
+        .findByEmail(email)
+        .map(u -> u.id())
+        .orElseGet(() -> users.create(name, email, hash, role).id());
+  }
+
+  private long officer(String name, String email, String department, String hash) {
+    long id =
+        users
+            .findByEmail(email)
+            .map(u -> u.id())
+            .orElseGet(() -> users.create(name, email, hash, Role.OFFICER).id());
+    jdbc.update(
+        "UPDATE users SET department_id=(SELECT id FROM departments WHERE name=?) WHERE id=?",
+        department,
+        id);
+    return id;
+  }
+
+  /** Files every sample report with its history, photos and neighbours' support. */
+  private void addReports(long citizen, long admin, long[] people, Map<String, Long> officers)
+      throws Exception {
     var officerNames = new HashMap<Long, String>();
-    officers.put("Roads and Infrastructure", new long[] {roadsOfficer});
-    officerNames.put(roadsOfficer, "Rakesh Meena");
-    for (var o : OFFICERS) {
-      long id = users.create(o[1], o[2] + "@civicpulse.demo", hash, Role.OFFICER).id();
-      jdbc.update(
-          "UPDATE users SET department_id=(SELECT id FROM departments WHERE name=?) WHERE id=?",
-          o[0],
-          id);
-      officers.put(o[0], new long[] {id});
-      officerNames.put(id, o[1]);
-    }
+    for (long id : officers.values())
+      officerNames.put(id, users.findById(id).orElseThrow().displayName());
     before = png("before.jpg");
     after = png("after.jpg");
     var categories = new HashMap<String, Category>();
@@ -560,7 +711,7 @@ public class DemoReports implements ApplicationRunner {
       if (s.linkTo() != null) dao.link(id, ids.get(s.linkTo()));
       boolean photo = s.code().equals("road") || s.code().equals("footpath");
       if (photo) images.add(id, reporter, "ORIGINAL", before);
-      long officer = officers.get(departments.get(category.departmentId()))[0];
+      long officer = officers.get(departments.get(category.departmentId()));
       lifecycle(id, s, reporter, officer, officerNames.get(officer), admin, photo, now);
     }
     // Neighbours supporting active issues.
