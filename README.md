@@ -63,6 +63,8 @@ GPS and camera require browser permission and HTTPS (localhost is supported). Ad
 
 For persistent production operation, use MySQL, stable `CP_JWT_SECRET` and `CP_ANONYMITY_SECRET` values, HTTPS and secure cookies. Do not deploy the demo profile.
 
+For free hosting with a fresh cloud database, follow [Render + Aiven MySQL deployment](backend/docs/RENDER_DEPLOYMENT.md). The root `Dockerfile` builds the complete app, and `render.yaml` configures a free Render web service using external MySQL.
+
 ## Credits
 
 The demo contains fictional reports. Sample photographs: [Marked Pothole](https://commons.wikimedia.org/wiki/File:Marked_Pothole.jpg) (Prosthetic Head) and [Recently patched potholes](https://commons.wikimedia.org/wiki/File:2018-09-03_15_15_33_Recently_patched_potholes_along_Franklin_Farm_Road_in_the_Franklin_Farm_section_of_Oak_Hill,_Fairfax_County,_Virginia.jpg) (Famartin), CC BY-SA 4.0. Icons: [Lucide](https://lucide.dev) (ISC). Fonts: Inter, Noto Sans Devanagari and Poppins (SIL OFL 1.1). Map clustering: Leaflet.markercluster (MIT).

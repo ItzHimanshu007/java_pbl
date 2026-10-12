@@ -1,0 +1,17 @@
+.git
+.idea
+.vscode
+**/target
+**/node_modules
+**/reports
+backend/docs
+.env
+.env.*
+**/*.log
+**/*.pem
+**/*.p12
+**/*.jks
+data
+uploads
+.local
+runtime

@@ -1,0 +1,35 @@
+# Free Render web service with external MySQL (see backend/docs/RENDER_DEPLOYMENT.md).
+# The database is provisioned separately on Aiven; no paid Render resources are created.
+services:
+  - type: web
+    name: civicpulse
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: render
+      - key: CP_COOKIE_SECURE
+        value: "true"
+      - key: CP_DB_URL
+        sync: false
+      - key: CP_DB_USERNAME
+        sync: false
+      - key: CP_DB_PASSWORD
+        sync: false
+      - key: CP_DB_CA_CERT_BASE64
+        sync: false
+      # Render generates Base64-encoded 256-bit values and preserves existing values.
+      - key: CP_JWT_SECRET
+        generateValue: true
+      - key: CP_ANONYMITY_SECRET
+        generateValue: true
+      - key: CP_ADMIN_EMAIL
+        sync: false
+      - key: CP_ADMIN_PASSWORD
+        sync: false
+      - key: CP_ADMIN_NAME
+        value: Administrator
