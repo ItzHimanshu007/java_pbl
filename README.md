@@ -15,6 +15,18 @@ Open http://localhost:8080. Demo accounts: `citizen@civicpulse.demo`, `officer@c
 
 Use the normal MySQL profile for persistent data and deployment (`CP_DB_URL`, `CP_DB_USERNAME`, `CP_DB_PASSWORD`, `CP_JWT_SECRET`); follow `backend/docs/SETUP.md`. Project documentation: `backend/docs/SRS_DOCUMENT.md`, `backend/docs/PROJECT_REPORT.md`, `backend/docs/ARCHITECTURE.md` and `database/module 5/SCHEMA.md`.
 
+## Deploy on Render
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/ItzHimanshu007/java_pbl)
+
+`render.yaml` deploys a free public demo built from the `Dockerfile`. Sign in to [Render](https://render.com) with GitHub, click the button (or choose **New → Blueprint** and pick this repository), then click **Apply**. The first build takes about 5–10 minutes. The site is then live at `https://civicpulse-jaipur.onrender.com`; Render adds a suffix if that name is taken.
+
+- It runs the demo profile with the Jaipur sample reports and the demo accounts above, so anyone with the link can sign in, including as the administrator. Everything resets whenever the service restarts, so do not enter real personal data.
+- A free instance sleeps after 15 minutes without visitors, and the next visit takes about 1–2 minutes to wake it. Open the site a few minutes before a presentation. The image compiles every JSP and caches the start-up classes at build time, so pages load quickly once it is awake.
+- For persistent data, create a MySQL 8 database. In the service's **Environment** settings, delete `SPRING_PROFILES_ACTIVE` and set `CP_DB_URL`, `CP_DB_USERNAME`, `CP_DB_PASSWORD`, `CP_JWT_SECRET`, `CP_ANONYMITY_SECRET` (each secret from `openssl rand -base64 32`), `CP_ADMIN_EMAIL` and `CP_ADMIN_PASSWORD`, as described in `backend/docs/SETUP.md`.
+
+The same image runs anywhere Docker does: `docker build -t civicpulse .` then `docker run -p 8080:8080 -e SPRING_PROFILES_ACTIVE=demo civicpulse`.
+
 ## Features
 
 - **Government-portal interface in English and हिन्दी.** Every page has a header language switch, a light/dark theme toggle and A-/A/A+ text sizes, for signed-in users and visitors alike. All interface text, including browser messages, comes from one pair of dictionaries (`i18n/en.json`, `i18n/hi.json`).
@@ -61,7 +73,7 @@ These are ownership modules in one app, not independent services. The root `pom.
 
 GPS and camera require browser permission and HTTPS (localhost is supported). Address suggestions combine the offline Jaipur locality list with a Photon-compatible geocoder (`CP_GEOCODER_URL`, default: the public Photon endpoint), which is cached and throttled. Map tiles come from CARTO, Esri World Imagery and OpenStreetMap and are allowed by the Content-Security-Policy. If they are unreachable the map falls back to OpenStreetMap and the report list keeps working. Map attribution stays visible.
 
-For persistent production operation, use MySQL, stable `CP_JWT_SECRET` and `CP_ANONYMITY_SECRET` values, HTTPS and secure cookies. Do not deploy the demo profile.
+For persistent production operation, use MySQL, stable `CP_JWT_SECRET` and `CP_ANONYMITY_SECRET` values, HTTPS and secure cookies. Use the demo profile only for a public demo like the Render blueprint, never for real complaints.
 
 ## Credits
 

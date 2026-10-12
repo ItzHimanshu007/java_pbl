@@ -1,0 +1,19 @@
+# Render Blueprint (https://render.com/docs/blueprint-spec) for a free public demo.
+# It runs the in-memory demo database, which is recreated with the Jaipur sample
+# reports every time the service starts. See "Deploy on Render" in README.md.
+services:
+  - type: web
+    name: civicpulse-jaipur
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /login
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: demo
+      # Render serves the site over HTTPS, so the cookies can be marked Secure.
+      - key: CIVIC_SECURITY_SECURECOOKIE
+        value: "true"
+      - key: SERVER_SERVLET_SESSION_COOKIE_SECURE
+        value: "true"

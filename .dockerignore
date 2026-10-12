@@ -1,0 +1,12 @@
+.git
+**/target/
+.idea/
+.vscode/
+*.iml
+.env
+.env.*
+*.log
+data/
+uploads/
+.local/
+runtime/
