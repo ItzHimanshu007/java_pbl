@@ -1,10 +1,17 @@
+<<<<<<< HEAD
 # Free Render web service with external MySQL (see backend/docs/RENDER_DEPLOYMENT.md).
 # The database is provisioned separately on Aiven; no paid Render resources are created.
+=======
+# Render Blueprint (https://render.com/docs/blueprint-spec) for a free public demo.
+# It runs the in-memory demo database, which is recreated with the Jaipur sample
+# reports every time the service starts. See "Deploy on Render" in README.md.
+>>>>>>> 88d54985fd2ea610e797f5fae220850bdaafd07d
 services:
   - type: web
     name: civicpulse
     runtime: docker
     plan: free
+<<<<<<< HEAD
     region: singapore
     dockerfilePath: ./Dockerfile
     dockerContext: .
@@ -33,3 +40,19 @@ services:
         sync: false
       - key: CP_ADMIN_NAME
         value: Administrator
+=======
+    region: oregon
+    branch: main
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /login
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: demo
+      - key: PORT
+        value: 8080
+      # Render serves the site over HTTPS, so the cookies can be marked Secure.
+      - key: CIVIC_SECURITY_SECURECOOKIE
+        value: "true"
+      - key: SERVER_SERVLET_SESSION_COOKIE_SECURE
+        value: "true"
+>>>>>>> 88d54985fd2ea610e797f5fae220850bdaafd07d
