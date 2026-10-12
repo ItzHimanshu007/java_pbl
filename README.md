@@ -10,6 +10,15 @@
 
 The site runs on Render's free plan and sleeps after 15 minutes without visitors, so the first visit can take a minute or two to load.
 
+**Project documents**
+
+| Document | Link |
+|---|---|
+| Project report | [View on Google Drive](https://drive.google.com/file/d/19K7T9EtAepqIm7ngM82QmIAlpn6WgDLG/view?usp=drive_link) |
+| Abstract | [View on Google Drive](https://drive.google.com/file/d/11aNrVOPMRHmJ4IQpY-zVANVPaQFdENSx/view?usp=drive_link) |
+| Research paper | [View on Google Drive](https://drive.google.com/file/d/1FzdvwbPmxXjHJS5c6rZ7UDYvJ0AMuwfr/view?usp=drive_link) |
+| Demo video | Coming soon |
+
 ---
 
 **A Jaipur 311-style citizen grievance redressal portal.** Citizens report civic problems with a photo and a map pin, the city routes each complaint to the responsible department, an officer repairs it, and the citizen confirms the fix. Every step is tracked publicly, in English and हिन्दी.
