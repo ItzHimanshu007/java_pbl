@@ -89,7 +89,6 @@ public class SecurityConfiguration {
                         policy.policyDirectives(
                             "default-src 'self'; script-src 'self'; style-src 'self'; img-src"
                                 + " 'self' data: blob: https://tile.openstreetmap.org"
-                                + " https://*.basemaps.cartocdn.com"
                                 + " https://server.arcgisonline.com;"
                                 + " frame-ancestors 'none'; base-uri 'self'; form-action 'self'")))
         .addFilterBefore(jwt, UsernamePasswordAuthenticationFilter.class);

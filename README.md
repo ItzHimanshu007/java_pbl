@@ -36,7 +36,7 @@ The image builds with `docker build -t civicpulse .`. Its entrypoint configures 
 - **Guided reporting.** Pick a service from icon tiles, use quick-title suggestions, add or take a photo, and choose a locality, address, GPS or map pin. The form suggests nearby duplicates and keeps a live review checklist. After submission you get an acknowledgement with the reference number, the target date and a printable slip.
 - **Anonymous reporting.** See below.
 - **Public tracking.** `/track?ref=…` shows status, department, zone, dates and the public timeline without sign-in. Names, contact details, notes and photos are never shown.
-- **Better maps.** Street, satellite and OpenStreetMap basemaps (dark streets in dark mode), category icon pins coloured by priority, clustering, full-screen mode, two-way sync between issue cards and pins, and a location mini-map on every report.
+- **Better maps.** OpenStreetMap opens by default on every map, with Satellite available in the layer switcher. Category icon pins are coloured by priority, with clustering, full-screen mode, two-way sync between issue cards and pins, and a location mini-map on every report.
 - **Dashboards.** The administrator dashboard shows the review queue, overdue work, department workload, complaints by zone and top services. Officers get their assignments and overdue work. Citizens get a nearby feed and My reports with a progress stepper. CSV export includes zone, due date, overdue and anonymity columns.
 - Linked reports of the same issue count distinct citizens: five or more = high, two to four = medium, one = low priority. Submitted reports are immutable; owners can delete and restore them. Citizens confirm or reopen repairs, keeping the full history.
 
@@ -72,7 +72,7 @@ These are ownership modules in one app, not independent services. The root `pom.
 
 ## Location, maps and deployment
 
-GPS and camera require browser permission and HTTPS (localhost is supported). Address suggestions combine the offline Jaipur locality list with a Photon-compatible geocoder (`CP_GEOCODER_URL`, default: the public Photon endpoint), which is cached and throttled. Map tiles come from CARTO, Esri World Imagery and OpenStreetMap and are allowed by the Content-Security-Policy. If they are unreachable the map falls back to OpenStreetMap and the report list keeps working. Map attribution stays visible.
+GPS and camera require browser permission and HTTPS (localhost is supported). Address suggestions combine the offline Jaipur locality list with a Photon-compatible geocoder (`CP_GEOCODER_URL`, default: the public Photon endpoint), which is cached and throttled. Every map starts with OpenStreetMap tiles, with Esri World Imagery available as an optional Satellite layer. Both providers are allowed by the Content-Security-Policy. If Satellite is unreachable the map falls back to OpenStreetMap and the report list keeps working. Map attribution stays visible.
 
 For persistent production operation, use MySQL, stable `CP_JWT_SECRET` and `CP_ANONYMITY_SECRET` values, HTTPS and secure cookies. Do not deploy the demo profile.
 

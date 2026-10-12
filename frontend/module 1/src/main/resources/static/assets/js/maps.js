@@ -7,10 +7,6 @@
   const safeCode = code => /^[a-z-]{1,30}$/.test(code || '') ? code : 'other';
   const remember = p => { try { sessionStorage.setItem('civic_location', JSON.stringify(p)); } catch { /* storage unavailable */ } };
   const recalled = () => { try { return JSON.parse(sessionStorage.getItem('civic_location')); } catch { return null; } };
-  const isDark = () => {
-    const theme = document.documentElement.dataset.theme;
-    return theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-  };
   const gps = () => new Promise((resolve, reject) => {
     if (!navigator.geolocation) { reject(new Error('Location is unavailable. Search an address or choose a map pin.')); return; }
     navigator.geolocation.getCurrentPosition(
@@ -26,16 +22,12 @@
 
   // ---- Base map with layer switcher, fullscreen and locate controls ----
   const BASEMAPS = {
-    streets: () => L.tileLayer(isDark()
-      ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
-      : 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
-    { subdomains: 'abcd', maxZoom: 20, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>' }),
-    satellite: () => L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-      { maxZoom: 19, attribution: 'Imagery &copy; Esri, Maxar, Earthstar Geographics' }),
     osm: () => L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-      { maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' })
+      { maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }),
+    satellite: () => L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+      { maxZoom: 19, attribution: 'Imagery &copy; Esri, Maxar, Earthstar Geographics' })
   };
-  const LAYER_LABELS = { streets: 'Streets', satellite: 'Satellite', osm: 'OSM' };
+  const LAYER_LABELS = { osm: 'OSM', satellite: 'Satellite' };
 
   function message(container, key) {
     let box = container.querySelector('.map-message');
@@ -46,7 +38,7 @@
   function baseMap(element, { center = JAIPUR, zoom = 13, layers = true, fullscreen = true, interactive = true } = {}) {
     const map = L.map(element, { scrollWheelZoom: false, zoomControl: false, dragging: interactive, tap: interactive }).setView(center, zoom);
     L.control.zoom({ position: 'bottomright', zoomInTitle: t('Zoom in'), zoomOutTitle: t('Zoom out') }).addTo(map);
-    let current = null, failures = 0, name = 'streets';
+    let current = null, failures = 0, name = 'osm';
     const use = key => {
       if (current) map.removeLayer(current);
       name = key; failures = 0;
@@ -90,7 +82,7 @@
       }
       return box;
     };
-    use('streets');
+    use('osm');
     switcher.addTo(map);
     markPressed();
     return map;
