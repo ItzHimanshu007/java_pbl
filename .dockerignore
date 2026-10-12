@@ -1,5 +1,8 @@
-.git
+.git/
+.github/
 **/target/
+pbl submission/
+mvnw.cmd
 .idea/
 .vscode/
 *.iml

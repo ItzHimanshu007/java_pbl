@@ -19,7 +19,7 @@ Use the normal MySQL profile for persistent data and deployment (`CP_DB_URL`, `C
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/ItzHimanshu007/java_pbl)
 
-`render.yaml` deploys a free public demo built from the `Dockerfile`. Sign in to [Render](https://render.com) with GitHub, click the button (or choose **New → Blueprint** and pick this repository), then click **Apply**. The first build takes about 5–10 minutes. The site is then live at `https://civicpulse-jaipur.onrender.com`; Render adds a suffix if that name is taken.
+`render.yaml` deploys a free public demo built from the `Dockerfile`. Sign in to [Render](https://render.com) with GitHub, click the button (or choose **New → Blueprint** and pick this repository), then click **Apply**. The first build takes about 5–10 minutes. The site is then live at `https://civicpulse.onrender.com`; Render adds a suffix if that name is taken.
 
 - It runs the demo profile with the Jaipur sample reports and the demo accounts above, so anyone with the link can sign in, including as the administrator. Everything resets whenever the service restarts, so do not enter real personal data.
 - A free instance sleeps after 15 minutes without visitors, and the next visit takes about 1–2 minutes to wake it. Open the site a few minutes before a presentation. The image compiles every JSP and caches the start-up classes at build time, so pages load quickly once it is awake.

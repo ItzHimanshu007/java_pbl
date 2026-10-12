@@ -3,15 +3,18 @@
 # reports every time the service starts. See "Deploy on Render" in README.md.
 services:
   - type: web
-    name: civicpulse-jaipur
+    name: civicpulse
     runtime: docker
     plan: free
-    region: singapore
+    region: oregon
+    branch: main
     dockerfilePath: ./Dockerfile
     healthCheckPath: /login
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: demo
+      - key: PORT
+        value: 8080
       # Render serves the site over HTTPS, so the cookies can be marked Secure.
       - key: CIVIC_SECURITY_SECURECOOKIE
         value: "true"
