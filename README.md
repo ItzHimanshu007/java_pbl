@@ -1,5 +1,15 @@
 # CivicPulse Jaipur
 
+**Live demo:** https://civicpulse-53ga.onrender.com/login
+
+| Role | Email | Password |
+|---|---|---|
+| Citizen | citizen@civicpulse.test | `citizen@1234` |
+| Officer | officer@civicpulse.test | `officer@1234` |
+| Admin | admin@civicpulse.test | `admin@1234` |
+
+The site runs on Render's free plan and sleeps after 15 minutes without visitors, so the first visit can take a minute or two to load.
+
 A responsive Java web app, inspired by city 311 services, for reporting civic problems in Jaipur. Citizens report a problem with a photo and a map pin. Administrators route it to the responsible department, officers repair it, and the citizen verifies the fix using the actual before and after photographs. Every step is tracked publicly by reference number.
 
 Java 17, Spring Boot, Spring Security, JWT cookies, JSP/JSTL, JDBC, MySQL, Flyway, Leaflet and OpenStreetMap power one executable WAR. The optional local demo uses an in-memory H2 database; normal operation uses persistent MySQL.
