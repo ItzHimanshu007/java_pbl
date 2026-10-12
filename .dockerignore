@@ -1,11 +1,15 @@
-backend/target/
-**/target/
 .git/
 .github/
-.mvn/
-mvnw
-mvnw.cmd
+**/target/
 pbl submission/
+mvnw.cmd
 .idea/
 .vscode/
+*.iml
+.env
+.env.*
 *.log
+data/
+uploads/
+.local/
+runtime/
